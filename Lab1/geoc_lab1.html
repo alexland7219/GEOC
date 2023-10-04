@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>GEOC - Lab 1</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <script type="text/javascript" src="TestLab1.json.js"></script>
+        <script type="text/javascript" src="script.js" defer></script>
+    </head>
+    <body>
+        <h1>GEOC - Lab 1</h1>
+
+        Last mouse position on canvas: <span id="mousepos"></span>
+        <br/>
+        <canvas id="canvas" width="1200" height="800"></canvas>
+    
+        <h2>Legend of Intersection Classification</h2>
+        <ul class="legend">
+            <li>No intersection</li>
+            <li>Point Intersection
+                <ul>
+                    <li>Interior Point Intersection</li>
+                    <li>Endpoint Intersection</li>
+                </ul>
+            </li>
+            <li>Segment Intersection
+                <ul>
+                    <li>Coincident Segments</li>
+                    <li></li>
+                </ul>                
+            </li>
+        </ul>
+        <span id="result"></span>
+    </body>
+</html>
