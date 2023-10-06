@@ -1,15 +1,13 @@
 //========= Auxiliary objects and data =========//
 
-// Important: this is the input
+// Input Segments
 var segments = inputJSON.segments; // Requires inputJSON variable set in file
 //var segments = inputJSON.segments.slice(0,6); // You can use slice() to select a subset of the segments. Make sure it is an even number!
-
 var points = [];
-// See names colors at https://www.w3schools.com/colors/colors_names.asp
-// Add as many colors as needed to classify all intersection types
+
 var colors = ['Blue', 'Red', 'Green', 'Cyan', 'DarkOrange', 'Magenta', 'RosyBrown', 'Navy'];
 
-// default styles
+// Style for canvas segments
 style = {
   curve: {
     width: 6,
@@ -30,7 +28,21 @@ style = {
 }
 
 context1 = canvas.getContext("2d");
+document.getElementById("resetButton").addEventListener("click", clearSegments);
+document.getElementById("loadDefaultButton").addEventListener("click", defaultSegments);
+
+function clearSegments(){
+	window.segments = []; // Empty
+	drawCanvas();
+}
+
+function defaultSegments(){
+	window.segments = inputJSON.segments;
+	drawCanvas();
+}
+
 drawCanvas();
+
 
 //========= Auxiliary functions =========//
 
@@ -44,10 +56,11 @@ canvas.addEventListener('mousemove', function(e) {
 });
 
 function drawCanvas() {
-  // Clear everything
-  context1.clearRect(-canvas.width / 2, -canvas.height / 2, 2 * canvas.width, 2 * canvas.height);
-  // Draw whatever needs to be drawn
-  drawSegments(context1, style, segments); 
+	// Clear everything
+	context1.clearRect(-canvas.width / 2, -canvas.height / 2, 2 * canvas.width, 2 * canvas.height);
+	// Draw whatever needs to be drawn
+	console.log(segments);
+	drawSegments(context1, style, window.segments); 
 }
 
 // Draws one point as circle
@@ -79,13 +92,15 @@ function drawSegment(ctx, style, segment, lineColor) {
 	drawPoint(ctx, style, segment.to);
 }
 
-// Draws all segments
 function drawSegments(ctx, style, segments) {
-	//For each pair draw pair after classifying intersection
+	// Clear results span
+	document.getElementById("result").innerHTML = "";
 
-	for (var i = 0; i < segments.length; i=i+2) {
+	//For each pair draw pair after classifying intersection
+	for (var i = 0; i < window.segments.length; i=i+2) {
 		// Classify intersection and obtain color to draw pair of segments
 		var intersectionClass = classifyIntersection(segments[i], segments[i+1]);
+		
 		reportResult(intersectionClass); // print description
 		var lineColor = colors[intersectionClass.type];
 		// Draw segment 
@@ -141,7 +156,6 @@ function isSegmentInsideSegment(s1, s2){
 	return (isPointInsideSegment(s2, s1.to) && isPointInsideSegment(s2, s1.from));
 }
 
-// TODO: Add your code here to classify all possible segment intersection types
 function classifyIntersection(s1, s2) {
 	var intersectionType, intersectionTypeDescription;
 	
