@@ -5,7 +5,15 @@ var segments = inputJSON.segments; // Requires inputJSON variable set in file
 //var segments = inputJSON.segments.slice(0,6); // You can use slice() to select a subset of the segments. Make sure it is an even number!
 var points = [];
 
-var colors = ['Blue', 'Red', 'Green', 'Cyan', 'DarkOrange', 'Magenta', 'RosyBrown', 'Navy'];
+var colors = [
+	"#FF5733", // Red
+	"#28CC45", // Green
+	"#3357FF", // Blue
+	"#FF33F3", // Pink
+	"#836953", // Brown
+	"#FFD700", // Gold
+	"#8A2BE2"  // BlueViolet
+  ];
 
 // Style for canvas segments
 style = {
@@ -167,7 +175,7 @@ function classifyIntersection(s1, s2) {
 
 	// Check if they intersect in an interior point
 	if (fstFrom * fstTo < 0 && sndFrom * sndTo < 0) {
-		intersectionType = 2;
+		intersectionType = 1;
 		intersectionTypeDescription = "Interior point intersection";
 	}
 	// Check if all four points are collinear
@@ -175,34 +183,46 @@ function classifyIntersection(s1, s2) {
 
 		// Check if they are coincident
 		if ((arePtsEq(s1.to, s2.to) && arePtsEq(s1.from, s2.from)) || (arePtsEq(s1.from, s2.to) && arePtsEq(s1.to, s2.from))){
-			intersectionType = 6;
+			intersectionType = 5;
 			intersectionTypeDescription = "Coincident segments"
 		}
 		// Check if segment 1 completely shadows segment 2
 		else if (isSegmentInsideSegment(s1, s2) || isSegmentInsideSegment(s2, s1)){
-			intersectionType = 7;
+			intersectionType = 6;
 			intersectionTypeDescription = "Multiple point intersection w/ total cover"
 		}
 		// Check if they intersect
 		else if (isPointInsideSegment(s1, s2.from) || isPointInsideSegment(s1, s2.to) ||
 				 isPointInsideSegment(s2, s1.from) || isPointInsideSegment(s2, s1.to)){
-			intersectionType = 5;
-			intersectionTypeDescription = "Multiple point intersection w/ partial cover";		
+			if (arePtsEq(s1.from, s2.from) || arePtsEq(s1.to, s2.to) || arePtsEq(s1.to, s2.from) || arePtsEq(s2.to, s1.from)){
+				intersectionType = 3;
+				intersectionTypeDescription = "Double endpoint intersection";
+			} else {
+				intersectionType = 4;
+				intersectionTypeDescription = "Multiple point intersection w/ partial cover";		
+	
+			}
 		}
 		else {
-			intersectionType = 1;
+			intersectionType = 0;
 			intersectionTypeDescription = "No intersection"
 		}
 	
 	// Check if there is a one-endpoint intersection
 	} else if (isPointInsideSegment(s1, s2.from) || isPointInsideSegment(s1, s2.to) ||
 			   isPointInsideSegment(s2, s1.from) || isPointInsideSegment(s2, s1.to)){
-		intersectionType = 3;
-		intersectionTypeDescription = "Single endpoint intersection";		
+		if (arePtsEq(s1.from, s2.from) || arePtsEq(s1.to, s2.to) || arePtsEq(s1.to, s2.from) || arePtsEq(s2.to, s1.from)){
+			intersectionType = 3;
+			intersectionTypeDescription = "Double endpoint intersection";
+		} else {
+			intersectionType = 2;
+			intersectionTypeDescription = "Single endpoint intersection";		
+	
+		}
 	
 	// If everything fails, there is no intersection sadly
 	} else {
-		intersectionType = 1;
+		intersectionType = 0;
 		intersectionTypeDescription = "No intersection";
 	}
 		

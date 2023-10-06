@@ -21,22 +21,39 @@
 
         </form>
 
-        <h2>Legend of Intersection Classification</h2>
-        <ul class="legend">
-            <li>No intersection</li>
-            <li>Point Intersection
-                <ul>
-                    <li>Interior Point Intersection</li>
-                    <li>Endpoint Intersection</li>
-                </ul>
-            </li>
-            <li>Segment Intersection
-                <ul>
-                    <li>Coincident Segments</li>
-                    <li></li>
-                </ul>                
-            </li>
-        </ul>
+        <table id="classTable">
+            <tr>
+                <td style='background-color: #FF5733;'></td>
+                <td>No Intersection</td>
+            </tr>
+            <tr>
+                <td style='background-color: #28CC45;'></td>
+                <td>Interior Point Intersection</td>
+            </tr>
+            <tr>
+                <td style='background-color: #3357FF;'></td>
+                <td>Single Endpoint Intersection</td>
+            </tr>
+            <tr>
+                <td style='background-color: #FF33F3;'></td>
+                <td>Double Endpoint Intersection</td>
+            </tr>
+            <tr>
+                <td style='background-color: #836953;'></td>
+                <td>Multiple Intersections with partial cover</td>
+            </tr>
+            <tr>
+                <td style='background-color: #8A2BE2;'></td>
+                <td>Multiple Intersections with total cover</td>
+            </tr>
+            <tr>
+                <td style='background-color: #FFD700;'></td>
+                <td>Coincident Segments</td>
+            </tr>
+
+        </table>
+
+
         <span id="result"></span>
     </body>
 </html>
