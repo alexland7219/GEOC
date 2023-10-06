@@ -38,6 +38,7 @@ style = {
 context1 = canvas.getContext("2d");
 document.getElementById("resetButton").addEventListener("click", clearSegments);
 document.getElementById("loadDefaultButton").addEventListener("click", defaultSegments);
+document.getElementById("addSegmentButton").addEventListener("click", addSegments);
 
 function clearSegments(){
 	window.segments = []; // Empty
@@ -48,6 +49,34 @@ function defaultSegments(){
 	window.segments = inputJSON.segments;
 	drawCanvas();
 }
+
+function addSegments(){
+	var s1_from = document.getElementById("from-s1").value;
+	var s2_from = document.getElementById("from-s2").value;
+	var s1_to	= document.getElementById("to-s1").value;
+	var s2_to   = document.getElementById("to-s2").value;
+
+	var matches = s1_from.match(/\d+/g);
+	var s1_fromPT = {'x': parseInt(matches[0]), 'y': parseInt(matches[1])};
+	matches = s1_to.match(/\d+/g);
+	var s1_toPT = {'x': parseInt(matches[0]), 'y': parseInt(matches[1])};
+
+	// Segment 1
+	s1 = {from: s1_fromPT, to: s1_toPT}
+	window.segments.push(s1);
+
+	matches = s2_from.match(/\d+/g);
+	var s2_fromPT = {'x': parseInt(matches[0]), 'y': parseInt(matches[1])};
+	matches = s2_to.match(/\d+/g);
+	var s2_toPT = {'x': parseInt(matches[0]), 'y': parseInt(matches[1])};
+
+	// Segment 1
+	s2 = {from: s2_fromPT, to: s2_toPT}
+	window.segments.push(s2);
+
+	drawCanvas();
+}	
+
 
 drawCanvas();
 
@@ -67,7 +96,6 @@ function drawCanvas() {
 	// Clear everything
 	context1.clearRect(-canvas.width / 2, -canvas.height / 2, 2 * canvas.width, 2 * canvas.height);
 	// Draw whatever needs to be drawn
-	console.log(segments);
 	drawSegments(context1, style, window.segments); 
 }
 
