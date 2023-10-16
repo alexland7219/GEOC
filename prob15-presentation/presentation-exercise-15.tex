@@ -1,6 +1,9 @@
 \documentclass{beamer}
 \usepackage{ragged2e}
 \usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
 % Theme
 \usetheme[block=fill, progressbar=frametitle]{metropolis} % Choose a theme (e.g., "Madrid", "Warsaw", "CambridgeUS", "Boadilla", etc.)
 \usecolortheme{spruce}
@@ -11,6 +14,12 @@
 \subtitle{Exercise 15}
 \author{Alexandre Ros}
 \date{\today}
+
+% Colors
+\definecolor{concave}{RGB}{160,32,240} % Define a custom color named "mycolor"
+\definecolor{convex}{RGB}{139,0,0} % Define a custom color named "mycolor"
+\definecolor{filling}{RGB}{72,116,94} % Define a custom color named "mycolor"
+
 % Begin the document
 \begin{document}
 
@@ -38,6 +47,8 @@ complete description of the partition.
 	\begin{block}{Output}
 	A \textbf{partition} of the polygon into rectangles, with no overlaps.
 	\end{block}
+	
+	We will call this problem $MNC$ (minimal nonoverlapping cover).
 \end{frame}
 
 \begin{frame}{Examples}
@@ -58,17 +69,118 @@ complete description of the partition.
 
 
 % Section 2
-\section{Solution}
+\section{Preliminaries}
 
-\begin{frame}[t]{Main Content}
-    \begin{block}{Important Point}
-        This is an important point you want to highlight.
-    \end{block}
+\begin{frame}[t]{Concave and convex vertices}
+	In a rectilinear polygon, we can distinguish between concave and convex vertices.
+	
     \begin{itemize}
-        \item More content.
-        \item More points.
+        \item A vertex is said to be \textcolor{concave}{\textbf{concave}} if its interior angle is over 180°.
+        \item A vertex is said to be \textcolor{convex}{\textbf{convex}} if its interior angle is under 180°.
     \end{itemize}
+    \vspace{10px}
+\begin{figure}
+\centering
+  \includegraphics[width=.6\textwidth]{"./concave.png"}
+  \caption{Convex (red) and concave (purple) vertices.}
+     \label{fig:question}
+\end{figure}
+
 \end{frame}
+
+\begin{frame}[t]{Co-vertical, co-horizontal and chords}	
+    \begin{itemize}
+        \item Two vertices $(x_1, y_1)$, $(x_2, y_2)$ that share no edge are \textbf{co-vertical} $\iff y_1 = y_2$ and \textbf{co-horizontal} $\iff x_1 = x_2$. 
+        \item A \textbf{chord} is a segment fully contained inside the polygon that connects two co-horizontal or co-vertical vertices.
+    \end{itemize}
+    \vspace{10px}
+\begin{figure}
+\centering
+  \includegraphics[width=.6\textwidth]{"./chords.png"}
+  \caption{Examples of chords (orange) and \textbf{not} chords (red).}
+     \label{fig:question}
+\end{figure}
+
+\end{frame}
+
+
+\section{Chord-less polygons}
+
+\begin{frame}[t]{Concave vertices observations}	
+	Suppose, for now, that there are no chords in polygon $P$.
+
+	\begin{block}{Observation \#1}
+	$P$ is a rectangle $\iff$ $P$ has exactly four convex vertices.
+	\end{block}  
+
+	\begin{block}{Observation \#2}
+	A concave vertex must be a vertex of two rectangles of the partition. See example below.
+	\end{block}  
+\begin{figure}
+
+\centering
+  \includegraphics[width=.6\textwidth]{"./direccio.png"}
+  \caption{Concave vertex.}
+     \label{fig:question}
+\end{figure}
+
+
+\end{frame}
+
+\begin{frame}[t]{Algorithm for chord-less polygons}	
+	\begin{block}{Observation \#3}
+	If $P$ is not a rectangle then it must have at least one concave vertex.
+	\end{block}  
+
+	\begin{block}{Idea to solve the problem}
+	For each concave vertex, extend its vertical edge until it hits another edge.
+	\textit{If it hits a vertex, then that extension is a chord!}
+	\end{block}  
+\begin{figure}
+
+\centering
+  \includegraphics[width=.5\textwidth]{"./launchrays.png"}
+  \caption{Chord-less polygons optimal solution.}
+     \label{fig:question}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}[t]{Algorithm for chord-less polygons}	
+
+  \begin{algorithm}[H] % H option forces the algorithm to stay in place
+    \caption{Chord-less MNC in $O(n \log n)$}
+    \begin{algorithmic}
+      % Your algorithm code goes here
+      \Procedure{MNC}{$P$}
+      \State $E \leftarrow \emptyset$; $R \leftarrow \emptyset$
+        \State $L \leftarrow $ sorted vertices of $P$ by x-coordinate¹.
+        \For{each vertex $v$ in $P$}
+        \State Insert $v$ to $E$ in position, delete position if duplicate.
+        \If{$v$ is concave}
+        	  \State Determine to extend vertical edge north or south.
+          \State Insert to $R$ the extension of vertical edge from $v$.
+          \EndIf
+        \EndFor
+        \State Return $R$ as the paritioning edges of $P$.
+      \EndProcedure
+    \end{algorithmic}
+  \end{algorithm}	
+	¹ If using y-coordinate as tiebreaker, we can read pairs of vertices at a time (vertical edges). 
+
+\end{frame}
+
+
+
+\begin{frame}[t]{The problem with polygons with chords}	
+	\begin{block}{Problem}
+	Suppose there are two co-horizontal vertices which form a chord.
+	We may prefer joining that chord rather than extending the vertical edge.
+	\end{block}  
+
+\end{frame}
+
+
 
 % Section 3
 \section{Conclusion}
