@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>GEOC - Lab 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<h1>Computational Geometry - Lab 2</h1>
+<br>
+Last mouse position on canvas: <span id="mousepos"></span>
+<br>
+<canvas id="canvas" width="600" height="600"></canvas>
+
+<!---- load all three input files ----->
+<script type="text/javascript" src="script.js" defer></script>
+<script type="text/javascript" src="TestLab2_1.json.js"></script>
+<script type="text/javascript" src="TestLab2_2.json.js"></script>
+<script type="text/javascript" src="TestLab2_3.json.js"></script>
+
+<form>
+Input data set:
+<select id="dataset" onchange="changeDataSet()">
+  <option value="0">Test set 1</option>
+  <option value="1">Test set 2</option>
+  <option value="2">Test set 3</option>
+</select>
+</form>
+
+
+<p>
+Note: show result by coloring each point differently depending on its situation with respect to the triangle. <b>Explain in the HTML the meaning of each color</b>.
+</p>
+
+<h2>Result of classification</h2>
+<span id="result"></span>
+
+</html>
