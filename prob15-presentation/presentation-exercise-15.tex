@@ -158,8 +158,8 @@ complete description of the partition.
         \For{each vertex $v$ in $P$}
         \State Insert $v$ to $E$ in position, delete position if duplicate.
         \If{$v$ is concave}
-        	  \State Determine to extend vertical edge north or south.
-          \State Insert to $R$ the extension of vertical edge from $v$.
+        	  \State Extend vertical edge.
+          \State Insert to $R$ the vertical edge.
           \EndIf
         \EndFor
         \State Return $R$ as the paritioning edges of $P$.
@@ -170,16 +170,77 @@ complete description of the partition.
 
 \end{frame}
 
+\foreach \i in {0,1,2,3,4,5,6,7,8}{
+  \begin{frame}[t]{Algorithm for chord-less polygons}
+    \centering
+    \includegraphics[width=\textwidth]{sweep\i.png}
+  \end{frame}
+}
+
+\section{Polygons with chords}
 
 
-\begin{frame}[t]{The problem with polygons with chords}	
-	\begin{block}{Problem}
+\begin{frame}[t]{Polygons with chords}	
+	\begin{block}{Problem \#1}
 	Suppose there are two co-horizontal vertices which form a chord.
 	We may prefer joining that chord rather than extending the vertical edge.
 	\end{block}  
+	
+    \centering
+    \includegraphics[width=0.7\textwidth]{problem.png}
+
+	We would end up with one more rectangle!
 
 \end{frame}
 
+\begin{frame}[t]{Polygons with chords}	
+	\begin{block}{Problem \#2}
+	If we drew all chords, there may be intersections.
+	\end{block}  
+	\vspace{10px}
+    \centering
+    \includegraphics[width=0.6\textwidth]{intersect0.png}
+
+	Chords $ab$ and $ch$ intersect. So do chords $ij$ and $di$.
+
+\end{frame}
+
+\begin{frame}[t]{Polygons with chords}	
+	\begin{block}{Solution}
+	Draw the largest set of non-intersecting chords. 
+	After this step, no chords can remain.
+    The remaining sub-polygons can be partitioned as usual.  
+
+	\end{block}  
+	\vspace{5px}
+    \centering
+    \includegraphics[width=0.6\textwidth]{intersect1.png}
+
+\end{frame}
+
+
+\begin{frame}[t]{Polygons with chords}	
+	\begin{block}{Theorem}
+	A rectilinear polygon $R$ has a minimum partition of order $N - L + 1$, where
+	
+	
+	$N = $ Total number of concave vertices on the boundary of $R$.
+	$L = $ Maximum number of nonintersecting chords.
+
+	\end{block}  
+	\centering
+    \includegraphics[width=0.43\textwidth]{intersect1.png}
+    
+    $N = 10$ and $L = 4$ therefore the optimal order is 7.
+
+\end{frame}
+
+\begin{frame}[t]{Finding the largest set of nonintersecting chords}	
+	\begin{block}{Process}
+	Construct a bipartite graph, with vertices $v_i$ for vertical chords, $h_i$ for horizontal chords, and edges $\{v_i, h_j\}$ if $v_i$ and $h_j$ intersect.
+	\end{block}
+
+\end{frame}
 
 
 % Section 3

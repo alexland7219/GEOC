@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70218" creator="Ipe 7.2.28">
-<info created="D:20231014195433" modified="D:20231017000021"/>
+<info created="D:20231014195433" modified="D:20231103223655"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -313,52 +313,78 @@ h
 <page>
 <layer name="alpha"/>
 <view layers="alpha" active="alpha"/>
-<path layer="alpha" matrix="1 0 0 1 144 0" stroke="0 0.239 0.122" pen="fat">
-64 656 m
-64 704 l
-112 704 l
-112 736 l
-80 736 l
-80 752 l
-144 752 l
-144 688 l
-160 688 l
-160 736 l
-192 736 l
-192 704 l
-224 704 l
-224 736 l
-256 736 l
-256 672 l
-224 672 l
-224 656 l
-128 656 l
-128 672 l
-80 672 l
-80 656 l
-64 656 l
-64 656 l
+<path layer="alpha" stroke="darkgreen" pen="fat">
+240 704 m
+240 656 l
+272 656 l
+272 624 l
+240 624 l
+240 576 l
+304 576 l
+304 608 l
+368 608 l
+368 560 l
+416 560 l
+416 576 l
+432 576 l
+432 624 l
+416 624 l
+416 656 l
+448 656 l
+448 704 l
+416 704 l
+416 720 l
+368 720 l
+368 688 l
+304 688 l
+304 704 l
+240 704 l
 </path>
-<use matrix="1 0 0 1 144 0" name="mark/disk(sx)" pos="80 736" size="5" stroke="darkred"/>
-<use matrix="1 0 0 1 144 0" name="mark/disk(sx)" pos="144 752" size="5" stroke="darkred"/>
-<use matrix="1 0 0 1 144 0" name="mark/disk(sx)" pos="64 704" size="5" stroke="darkred"/>
-<use matrix="1 0 0 1 144 0" name="mark/disk(sx)" pos="64 656" size="5" stroke="darkred"/>
-<use matrix="1 0 0 1 144 0" name="mark/disk(sx)" pos="80 656" size="5" stroke="darkred"/>
-<use matrix="1 0 0 1 144 0" name="mark/disk(sx)" pos="128 656" size="5" stroke="darkred"/>
-<use matrix="1 0 0 1 144 0" name="mark/disk(sx)" pos="224 656" size="5" stroke="darkred"/>
-<use matrix="1 0 0 1 144 0" name="mark/disk(sx)" pos="256 672" size="5" stroke="darkred"/>
-<use matrix="1 0 0 1 144 0" name="mark/disk(sx)" pos="256 736" size="5" stroke="darkred"/>
-<use matrix="1 0 0 1 144 0" name="mark/disk(sx)" pos="224 736" size="5" stroke="darkred"/>
-<use matrix="1 0 0 1 144 0" name="mark/disk(sx)" pos="192 736" size="5" stroke="darkred"/>
-<use matrix="1 0 0 1 144 0" name="mark/disk(sx)" pos="160 736" size="5" stroke="darkred"/>
-<use matrix="1 0 0 1 144 0" name="mark/disk(sx)" pos="112 736" size="5" stroke="purple"/>
-<use matrix="1 0 0 1 144 0" name="mark/disk(sx)" pos="112 704" size="5" stroke="purple"/>
-<use matrix="1 0 0 1 144 0" name="mark/disk(sx)" pos="80 672" size="5" stroke="purple"/>
-<use matrix="1 0 0 1 144 0" name="mark/disk(sx)" pos="128 672" size="5" stroke="purple"/>
-<use matrix="1 0 0 1 144 0" name="mark/disk(sx)" pos="144 688" size="5" stroke="purple"/>
-<use matrix="1 0 0 1 144 0" name="mark/disk(sx)" pos="160 688" size="5" stroke="purple"/>
-<use matrix="1 0 0 1 144 0" name="mark/disk(sx)" pos="192 704" size="5" stroke="purple"/>
-<use matrix="1 0 0 1 144 0" name="mark/disk(sx)" pos="224 704" size="5" stroke="purple"/>
-<use matrix="1 0 0 1 144 0" name="mark/disk(sx)" pos="224 672" size="5" stroke="purple"/>
+<use name="mark/disk(sx)" pos="304 688" size="normal" stroke="purple"/>
+<use name="mark/disk(sx)" pos="368 688" size="normal" stroke="purple"/>
+<use name="mark/disk(sx)" pos="416 656" size="normal" stroke="purple"/>
+<use name="mark/disk(sx)" pos="416 624" size="normal" stroke="purple"/>
+<use name="mark/disk(sx)" pos="416 576" size="normal" stroke="purple"/>
+<use name="mark/disk(sx)" pos="368 608" size="normal" stroke="purple"/>
+<use name="mark/disk(sx)" pos="304 608" size="normal" stroke="purple"/>
+<use name="mark/disk(sx)" pos="272 624" size="normal" stroke="purple"/>
+<use name="mark/disk(sx)" pos="272 656" size="normal" stroke="purple"/>
+<use name="mark/disk(sx)" pos="416 704" size="normal" stroke="purple"/>
+<text matrix="1 0 0 1 -4.5637 -7.37214" transformations="translations" pos="311.028 698.066" stroke="black" type="label" width="5.853" height="5.147" depth="0" valign="baseline" size="large">a</text>
+<text matrix="1 0 0 1 -0.351054 -4.91476" transformations="translations" pos="308.22 600.824" stroke="black" type="label" width="6.503" height="8.302" depth="0" valign="baseline" size="large">b</text>
+<text matrix="1 0 0 1 -3.8616 -6.31897" transformations="translations" pos="272.412 667.875" stroke="black" type="label" width="5.203" height="5.147" depth="0" valign="baseline" size="large">c</text>
+<text matrix="1 0 0 1 -8.77635 -15.7974" transformations="translations" pos="277.327 627.504" stroke="black" type="label" width="6.503" height="8.302" depth="0" valign="baseline" size="large">d</text>
+<text matrix="1 0 0 1 4.21265 -6.31897" transformations="translations" pos="355.261 698.066" stroke="black" type="label" width="5.203" height="5.147" depth="0" valign="baseline" size="large">e</text>
+<text matrix="1 0 0 1 4.91476 -0.351054" transformations="translations" pos="355.261 596.611" stroke="black" type="label" width="3.577" height="8.302" depth="0" valign="baseline" size="large">f</text>
+<text matrix="1 0 0 1 -2.10632 -9.12741" transformations="translations" pos="420.557 717.023" stroke="black" type="label" width="5.853" height="5.152" depth="2.32" valign="baseline" size="large">g</text>
+<text matrix="1 0 0 1 10.8827 -4.91476" transformations="translations" pos="408.621 665.067" stroke="black" type="label" width="6.503" height="8.302" depth="0" valign="baseline" size="large">h</text>
+<text matrix="1 0 0 1 16.1485 6.67003" transformations="translations" pos="403.707 622.238" stroke="black" type="label" width="3.252" height="7.935" depth="0" valign="baseline" size="large">i</text>
+<text matrix="1 0 0 1 13.6911 -17.5527" transformations="translations" pos="405.813 582.569" stroke="black" type="label" width="3.577" height="7.939" depth="2.32" valign="baseline" size="large">j</text>
+<path stroke="darkmagenta" pen="fat">
+304 688 m
+304 608 l
+304 608 l
+</path>
+<path stroke="darkorange" dash="dashed" pen="heavier">
+272 656 m
+416 656 l
+416 656 l
+</path>
+<path stroke="darkmagenta" pen="fat">
+368 688 m
+368 608 l
+</path>
+<path stroke="darkorange" dash="dashed" pen="heavier">
+272 624 m
+416 624 l
+</path>
+<path stroke="darkmagenta" pen="fat">
+416 576 m
+416 624 l
+</path>
+<path stroke="darkmagenta" pen="fat">
+416 704 m
+416 656 l
+</path>
 </page>
 </ipe>

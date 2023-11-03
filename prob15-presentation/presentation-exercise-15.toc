@@ -1,4 +1,5 @@
 \beamer@sectionintoc {1}{Introduction to the problem}{2}{0}{1}
 \beamer@sectionintoc {2}{Preliminaries}{5}{0}{2}
 \beamer@sectionintoc {3}{Chord-less polygons}{8}{0}{3}
-\beamer@sectionintoc {4}{Conclusion}{13}{0}{4}
+\beamer@sectionintoc {4}{Polygons with chords}{21}{0}{4}
+\beamer@sectionintoc {5}{Conclusion}{27}{0}{5}
