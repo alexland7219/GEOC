@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.10.14)  4 NOV 2023 02:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.10.14)  4 NOV 2023 16:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -866,12 +866,6 @@ LaTeX Warning: Label `fig:question' multiply defined.
 
 LaTeX Warning: Label `fig:question' multiply defined.
 
-
-LaTeX Warning: Label `fig:question' multiply defined.
-
-
-LaTeX Warning: Label `fig:question' multiply defined.
-
 )
 \openout1 = `presentation-exercise-15.aux'.
 
@@ -1063,65 +1057,47 @@ thkerncmss.
 [3
 
 ]
-<./rect1.png, id=51, 966.61125pt x 209.78375pt>
+<./rect1.png, id=51, 918.43124pt x 495.8525pt>
 File: ./rect1.png Graphic file (type png)
 <use ./rect1.png>
-Package pdftex.def Info: ./rect1.png  used on input line 68.
-(pdftex.def)             Requested size: 245.83282pt x 53.35168pt.
-<./rec1sol.png, id=53, 966.61125pt x 209.78375pt>
-File: ./rec1sol.png Graphic file (type png)
-<use ./rec1sol.png>
-Package pdftex.def Info: ./rec1sol.png  used on input line 68.
-(pdftex.def)             Requested size: 245.83282pt x 53.35168pt.
+Package pdftex.def Info: ./rect1.png  used on input line 62.
+(pdftex.def)             Requested size: 342.02502pt x 184.65799pt.
  [4
 
-
-pdfTeX warning (ext4): destination with the same identifier (name{fig:question}
-) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.68 \end{frame}
-                 <./rect1.png> <./rec1sol.png>] [5
+ <./rect1.png>] [5
 
 ]
 LaTeX Font Info:    Trying to load font information for TS1+cmss on input line 
-89.
-
-(/usr/share/texmf-dist/tex/latex/base/ts1cmss.fd
+83.
+ (/usr/share/texmf-dist/tex/latex/base/ts1cmss.fd
 File: ts1cmss.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
-<./concave.png, id=68, 439.6425pt x 227.85126pt>
+<./concave.png, id=65, 439.6425pt x 227.85126pt>
 File: ./concave.png Graphic file (type png)
 <use ./concave.png>
-Package pdftex.def Info: ./concave.png  used on input line 89.
+Package pdftex.def Info: ./concave.png  used on input line 83.
 (pdftex.def)             Requested size: 184.3758pt x 95.55432pt.
 
-pdfTeX warning (ext4): destination with the same identifier (name{fig:question}
-) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.89 \end{frame}
-                
-Overfull \vbox (16.7152pt too high) detected at line 89
+Overfull \vbox (16.7152pt too high) detected at line 83
  []
 
 [6
 
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <./concave.pn
 g>]
-<./chords.png, id=76, 932.48375pt x 469.755pt>
+<./chords.png, id=74, 932.48375pt x 469.755pt>
 File: ./chords.png Graphic file (type png)
 <use ./chords.png>
-Package pdftex.def Info: ./chords.png  used on input line 104.
+Package pdftex.def Info: ./chords.png  used on input line 98.
 (pdftex.def)             Requested size: 184.3758pt x 92.88132pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{fig:question}
 ) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.104 \end{frame}
-                 
-Overfull \vbox (6.43802pt too high) detected at line 104
+l.98 \end{frame}
+                
+Overfull \vbox (6.43802pt too high) detected at line 98
  []
 
 [7
@@ -1129,37 +1105,37 @@ Overfull \vbox (6.43802pt too high) detected at line 104
  <./chords.png>] [8
 
 ]
-<./direccio.png, id=92, 786.94pt x 779.91376pt>
+<./direccio.png, id=90, 786.94pt x 779.91376pt>
 File: ./direccio.png Graphic file (type png)
 <use ./direccio.png>
-Package pdftex.def Info: ./direccio.png  used on input line 128.
+Package pdftex.def Info: ./direccio.png  used on input line 122.
 (pdftex.def)             Requested size: 184.3758pt x 182.72043pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{fig:question}
 ) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.128 \end{frame}
+l.122 \end{frame}
                  
-Overfull \vbox (133.17978pt too high) detected at line 128
+Overfull \vbox (133.17978pt too high) detected at line 122
  []
 
 [9
 
  <./direccio.png>]
-<./launchrays.png, id=99, 1184.425pt x 596.2275pt>
+<./launchrays.png, id=97, 1184.425pt x 596.2275pt>
 File: ./launchrays.png Graphic file (type png)
 <use ./launchrays.png>
-Package pdftex.def Info: ./launchrays.png  used on input line 147.
+Package pdftex.def Info: ./launchrays.png  used on input line 141.
 (pdftex.def)             Requested size: 153.64493pt x 77.33943pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{fig:question}
 ) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.147 \end{frame}
+l.141 \end{frame}
                  
-Overfull \vbox (18.06544pt too high) detected at line 147
+Overfull \vbox (18.06544pt too high) detected at line 141
  []
 
 [10
@@ -1167,116 +1143,116 @@ Overfull \vbox (18.06544pt too high) detected at line 147
  <./launchrays.png>]
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/sc' in size <10.95> not available
-(Font)              Font shape `OT1/cmr/m/sc' tried instead on input line 171.
+(Font)              Font shape `OT1/cmr/m/sc' tried instead on input line 165.
 
 
-Overfull \vbox (8.69203pt too high) detected at line 171
+Overfull \vbox (8.69203pt too high) detected at line 165
  []
 
 [11
 
 ]
-<sweep0.png, id=113, 866.23625pt x 527.9725pt>
+<sweep0.png, id=111, 866.23625pt x 527.9725pt>
 File: sweep0.png Graphic file (type png)
 <use sweep0.png>
-Package pdftex.def Info: sweep0.png  used on input line 178.
+Package pdftex.def Info: sweep0.png  used on input line 172.
 (pdftex.def)             Requested size: 307.28987pt x 187.29056pt.
  [12
 
  <./sweep0.png>]
-<sweep1.png, id=120, 866.23625pt x 527.9725pt>
+<sweep1.png, id=118, 866.23625pt x 527.9725pt>
 File: sweep1.png Graphic file (type png)
 <use sweep1.png>
-Package pdftex.def Info: sweep1.png  used on input line 178.
+Package pdftex.def Info: sweep1.png  used on input line 172.
 (pdftex.def)             Requested size: 307.28987pt x 187.29056pt.
  [13
 
  <./sweep1.png>]
-<sweep2.png, id=128, 866.23625pt x 527.9725pt>
+<sweep2.png, id=126, 866.23625pt x 527.9725pt>
 File: sweep2.png Graphic file (type png)
 <use sweep2.png>
-Package pdftex.def Info: sweep2.png  used on input line 178.
+Package pdftex.def Info: sweep2.png  used on input line 172.
 (pdftex.def)             Requested size: 307.28987pt x 187.29056pt.
  [14
 
  <./sweep2.png>]
-<sweep3.png, id=135, 866.23625pt x 527.9725pt>
+<sweep3.png, id=133, 866.23625pt x 527.9725pt>
 File: sweep3.png Graphic file (type png)
 <use sweep3.png>
-Package pdftex.def Info: sweep3.png  used on input line 178.
+Package pdftex.def Info: sweep3.png  used on input line 172.
 (pdftex.def)             Requested size: 307.28987pt x 187.29056pt.
  [15
 
  <./sweep3.png>]
-<sweep4.png, id=142, 866.23625pt x 527.9725pt>
+<sweep4.png, id=140, 866.23625pt x 527.9725pt>
 File: sweep4.png Graphic file (type png)
 <use sweep4.png>
-Package pdftex.def Info: sweep4.png  used on input line 178.
+Package pdftex.def Info: sweep4.png  used on input line 172.
 (pdftex.def)             Requested size: 307.28987pt x 187.29056pt.
  [16
 
  <./sweep4.png>]
-<sweep5.png, id=149, 1125.20375pt x 685.56125pt>
+<sweep5.png, id=147, 1125.20375pt x 685.56125pt>
 File: sweep5.png Graphic file (type png)
 <use sweep5.png>
-Package pdftex.def Info: sweep5.png  used on input line 178.
+Package pdftex.def Info: sweep5.png  used on input line 172.
 (pdftex.def)             Requested size: 307.28987pt x 187.21709pt.
  [17
 
  <./sweep5.png>]
-<sweep6.png, id=156, 1125.20375pt x 685.56125pt>
+<sweep6.png, id=154, 1125.20375pt x 685.56125pt>
 File: sweep6.png Graphic file (type png)
 <use sweep6.png>
-Package pdftex.def Info: sweep6.png  used on input line 178.
+Package pdftex.def Info: sweep6.png  used on input line 172.
 (pdftex.def)             Requested size: 307.28987pt x 187.21709pt.
  [18
 
  <./sweep6.png>]
-<sweep7.png, id=163, 1125.20375pt x 685.56125pt>
+<sweep7.png, id=161, 1125.20375pt x 685.56125pt>
 File: sweep7.png Graphic file (type png)
 <use sweep7.png>
-Package pdftex.def Info: sweep7.png  used on input line 178.
+Package pdftex.def Info: sweep7.png  used on input line 172.
 (pdftex.def)             Requested size: 307.28987pt x 187.21709pt.
  [19
 
  <./sweep7.png>]
-<sweep8.png, id=171, 1126.2075pt x 685.56125pt>
+<sweep8.png, id=169, 1126.2075pt x 685.56125pt>
 File: sweep8.png Graphic file (type png)
 <use sweep8.png>
-Package pdftex.def Info: sweep8.png  used on input line 178.
+Package pdftex.def Info: sweep8.png  used on input line 172.
 (pdftex.def)             Requested size: 307.28987pt x 187.06018pt.
  [20
 
  <./sweep8.png>] [21
 
 ]
-<problem.png, id=185, 1209.51875pt x 608.2725pt>
+<problem.png, id=183, 1209.51875pt x 608.2725pt>
 File: problem.png Graphic file (type png)
 <use problem.png>
-Package pdftex.def Info: problem.png  used on input line 194.
+Package pdftex.def Info: problem.png  used on input line 188.
 (pdftex.def)             Requested size: 215.10196pt x 108.17563pt.
  [22
 
  <./problem.png>]
-<intersect0.png, id=192, 598.235pt x 461.725pt>
+<intersect0.png, id=190, 598.235pt x 461.725pt>
 File: intersect0.png Graphic file (type png)
 <use intersect0.png>
-Package pdftex.def Info: intersect0.png  used on input line 206.
+Package pdftex.def Info: intersect0.png  used on input line 200.
 (pdftex.def)             Requested size: 184.3758pt x 142.30191pt.
 
-Overfull \vbox (8.7513pt too high) detected at line 206
+Overfull \vbox (8.7513pt too high) detected at line 200
  []
 
 [23
 
  <./intersect0.png>]
-<intersect1.png, id=199, 598.235pt x 461.725pt>
+<intersect1.png, id=197, 598.235pt x 461.725pt>
 File: intersect1.png Graphic file (type png)
 <use intersect1.png>
-Package pdftex.def Info: intersect1.png  used on input line 219.
+Package pdftex.def Info: intersect1.png  used on input line 213.
 (pdftex.def)             Requested size: 184.3758pt x 142.30191pt.
 
-Overfull \vbox (11.76828pt too high) detected at line 219
+Overfull \vbox (11.76828pt too high) detected at line 213
  []
 
 [24
@@ -1284,29 +1260,29 @@ Overfull \vbox (11.76828pt too high) detected at line 219
  <./intersect1.png>]
 File: intersect1.png Graphic file (type png)
 <use intersect1.png>
-Package pdftex.def Info: intersect1.png  used on input line 236.
+Package pdftex.def Info: intersect1.png  used on input line 230.
 (pdftex.def)             Requested size: 132.13239pt x 101.9814pt.
 
-Overfull \vbox (10.78802pt too high) detected at line 236
+Overfull \vbox (10.78802pt too high) detected at line 230
  []
 
 [25
 
 ]
-<graph0.png, id=212, 1363.0925pt x 599.23875pt>
+<graph0.png, id=210, 1363.0925pt x 599.23875pt>
 File: graph0.png Graphic file (type png)
 <use graph0.png>
-Package pdftex.def Info: graph0.png  used on input line 249.
+Package pdftex.def Info: graph0.png  used on input line 243.
 (pdftex.def)             Requested size: 276.559pt x 121.57378pt.
  [26
 
  <./graph0.png>] [27
 
 ]
-<mis.png, id=225, 1118.1775pt x 422.57875pt>
+<mis.png, id=223, 1118.1775pt x 422.57875pt>
 File: mis.png Graphic file (type png)
 <use mis.png>
-Package pdftex.def Info: mis.png  used on input line 284.
+Package pdftex.def Info: mis.png  used on input line 278.
 (pdftex.def)             Requested size: 273.62106pt x 103.40695pt.
  [28
 
@@ -1338,10 +1314,10 @@ d.
 (rerunfilecheck)             Checksum: 7A6942E9ED7AAC3D3FD883F5F95A5434;585.
  ) 
 Here is how much of TeX's memory you used:
- 26420 strings out of 477985
- 532221 string characters out of 5840057
+ 26412 strings out of 477985
+ 532074 string characters out of 5840057
  1861388 words of memory out of 5000000
- 45989 multiletter control sequences out of 15000+600000
+ 45982 multiletter control sequences out of 15000+600000
  522133 words of font info for 66 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  128i,13n,122p,2004b,835s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1355,10 +1331,10 @@ dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/t
 ype1/public/amsfonts/cm/cmssi10.pfb></usr/share/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmssi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cms
 y10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1095.pfb>
-Output written on presentation-exercise-15.pdf (32 pages, 433771 bytes).
+Output written on presentation-exercise-15.pdf (32 pages, 434426 bytes).
 PDF statistics:
- 327 PDF objects out of 1000 (max. 8388607)
+ 325 PDF objects out of 1000 (max. 8388607)
  219 compressed objects within 3 object streams
  70 named destinations out of 1000 (max. 500000)
- 175 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 170 words of extra memory for PDF output out of 10000 (max. 10000000)
 
