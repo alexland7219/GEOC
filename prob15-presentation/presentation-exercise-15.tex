@@ -220,47 +220,129 @@ complete description of the partition.
 
 
 \begin{frame}[t]{Polygons with chords}	
-	\begin{block}{Theorem}
-	A rectilinear polygon $R$ has a minimum partition of order $N - L + 1$, where
+	\begin{block}{Theorem (Ferrari, 1984)}
+	A rectilinear polygon $R$ has a minimum partition of order $N - B + 1$, where
 	
 	
 	$N = $ Total number of concave vertices on the boundary of $R$.
-	$L = $ Maximum number of nonintersecting chords.
+	$B = $ Maximum number of nonintersecting chords.
 
 	\end{block}  
 	\centering
     \includegraphics[width=0.43\textwidth]{intersect1.png}
     
-    $N = 10$ and $L = 4$ therefore the optimal order is 7.
+    $N = 10$ and $B = 4$ therefore the optimal order is 7.
 
 \end{frame}
 
 \begin{frame}[t]{Finding the largest set of nonintersecting chords}	
 	\begin{block}{Process}
-	Construct a bipartite graph, with vertices $v_i$ for vertical chords, $h_i$ for horizontal chords, and edges $\{v_i, h_j\}$ if $v_i$ and $h_j$ intersect.
+	Construct a bipartite graph $B$, with vertices $v_i$ for vertical chords, $h_i$ for horizontal chords, and edges $\{v_i, h_j\}$ if $v_i$ and $h_j$ intersect.
+	
+	Problem reduces to finding the maximum independent set of $B$.
+
+	
+	\end{block}
+	\centering
+    \includegraphics[width=0.9\textwidth]{graph0.png}
+
+\end{frame}
+
+\begin{frame}[t]{Finding the largest set of nonintersecting chords}	
+	\begin{block}{Maximum Independent Set}
+	Recall that the MIS problem for a general graph is NP-hard. 	
+	It is possible to find the MIS of a \textbf{bipartite} graph in polynomial time using Kőnig's theorem.
+	
+	\end{block}
+
+	\begin{block}{Kőnig's theorem}
+    In any bipartite graph, the number of edges in a maximum matching equals the number of vertices in a minimum vertex cover.
+    	
+	\end{block}
+
+	\begin{block}{Min Vertex Cover / Max Independent Set}
+	
+	Both problems are complements of each other. So, the number of edges in a max matching is $\#V$ minus the size of the MIS.	
+	    	
 	\end{block}
 
 \end{frame}
 
+\begin{frame}[t, shrink=10]{Max. Independent Set on Bipartite Graphs}
 
-% Section 3
-\section{Conclusion}
+Hopcroft-Karp algorithm for finding a maximum matching on a bipartite graph, in $O(n^{2.5})$, being $n$ the number of vertices.
 
-\begin{frame}
-    \frametitle{Conclusion}
-    \begin{itemize}
-        \item Summarize key points.
-        \item Highlight takeaways.
-    \end{itemize}
+	Every edge in the matching will have one vertex in the VC and one in IS. 
+
+	Knowing the size of the MIS, computing the actual set can be accomplished in $\omega(n^{2.5})$ using a simple algorithm.
+	\vspace{10px}
+
+	\centering
+    \includegraphics[width=0.8\textwidth]{mis.png}
+
+
 \end{frame}
 
-% Additional slides, if needed
+\begin{frame}[t, shrink=10]{Recap}
+
+	\begin{block}{Algorithm - $O(n^{2.5})$}
+	1. Find chords of $R$.
+	
+	2. Construct the bipartite graph $B = (V, H, E)$ as follows: each vertex $v_i$ in $V$ corresponds to a vertical chord, every $h_i$ in $H$ to a horizontal chord, and each edge $v_i h_j$ in $E$ corresponds to an intersection between $v_i$ and $h_i$.
+
+	3. Find maximum matching $M$ of $B$. $O(n^{2.5})$
+	
+	4. Find maximum independent set $S$ of $B$ based on $M$, by using Kőnig's Theorem. Let $b = |S|$.
+
+	5. Draw $b$ chords corresponding to $S$, dividing $R$ into $b + 1$ subpolygons, with each subpolygon being chord-less.
+	
+	6. A minimal partition of each subpolygon can be found by using the sweep-line algorithm provided in slide 8.
+		\end{block}
+\end{frame}
+
+
+\begin{frame}[t]{Holes}
+
+	The problem can be solved if it has holes. In that case, the smallest number of rectangles in a rectangular partition of a nonsimply rectilinear polygon $R$ is:
+
+	\begin{center}
+		$N - B + 1 - D$, being 
+	\end{center}
+	
+	$N$ = Total number of concave vertices contained inside $R$. 
+
+	$L$ = Maximum number of nonintersecting chords in $R$. 
+
+	$D$ = Number of holes in $R$. 
+
+\end{frame}
+
+\begin{frame}{Improvements and References}
+
+For a polygon with holes, the optimal is $\Omega(n \log n)$.
+
+It is possible to solve the problem without constructing the graph in
+$O(n)$ (Liou et al, 1990).
+
+The 3D version using orthogonal parallelepipeds is NP-complete.
+
+
+\textbf{References}
+
+  \begin{itemize}
+    \item Liou et al, \emph{Minimum Rectangular Partition Problem for Simple
+Rectilinear Polygons}, IEEE Trans. Computer-Aided Design, 1990.
+    \item Ferrari et al, \emph{Minimal Rectangular Partitions of Digitized Blobs}, Department of Electrical Engineering University of California, 1984.
+    % Add more references as needed
+  \end{itemize}
+\end{frame}
+
 
 % Thank you slide
 \begin{frame}
     \frametitle{Thank You}
     \centering
-    \Huge Thank you for your attention!
+    \Huge Thanks for your attention!
 \end{frame}
 
 \end{document}
