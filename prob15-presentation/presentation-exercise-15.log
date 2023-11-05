@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.10.14)  4 NOV 2023 16:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=latex 2023.10.14)  5 NOV 2023 18:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -174,10 +174,10 @@ Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
 (/usr/share/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 107.
+Package graphics Info: Driver file: dvips.def on input line 107.
 
-(/usr/share/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+(/usr/share/texmf-dist/tex/latex/graphics-def/dvips.def
+File: dvips.def 2022/09/22 v3.1e Graphics/color driver for dvips
 ))
 \Gin@req@height=\dimen175
 \Gin@req@width=\dimen176
@@ -209,20 +209,19 @@ Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
 (/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
 )
-Driver file for pgf: pgfsys-pdftex.def
+Driver file for pgf: pgfsys-dvips.def
 
-(/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
-File: pgfsys-pdftex.def 2023-01-15 v3.1.10 (3.1.10)
+(/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-dvips.def
+File: pgfsys-dvips.def 2023-01-15 v3.1.10 (3.1.10)
 
-(/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
-File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
-)))
-(/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
+(/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-postscript.def
+File: pgfsys-common-postscript.def 2023-01-15 v3.1.10 (3.1.10)
+\pgf@objectcount=\count291
+))) (/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfsyssoftpath@smallbuffer@items=\count291
-\pgfsyssoftpath@bigbuffer@items=\count292
-)
-(/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
+\pgfsyssoftpath@smallbuffer@items=\count292
+\pgfsyssoftpath@bigbuffer@items=\count293
+) (/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ))
 (/usr/share/texmf-dist/tex/latex/xcolor/xcolor.sty
@@ -231,11 +230,10 @@ Package: xcolor 2022/06/12 v2.14 LaTeX color extensions (UK)
 (/usr/share/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package xcolor Info: Driver file: pdftex.def on input line 227.
+Package xcolor Info: Driver file: dvips.def on input line 227.
 
 (/usr/share/texmf-dist/tex/latex/graphics/mathcolor.ltx)
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1353.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1357.
 Package xcolor Info: Model `RGB' extended on input line 1369.
 Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1371.
 Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1372.
@@ -279,7 +277,7 @@ File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfpic=\box62
 \pgf@hbox=\box63
 \pgf@layerbox@main=\box64
-\pgf@picture@serial@count=\count293
+\pgf@picture@serial@count=\count294
 )
 (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -307,8 +305,8 @@ File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@max=\dimen266
-\pgf@sys@shading@range@num=\count294
-\pgf@shadingcount=\count295
+\pgf@sys@shading@range@num=\count295
+\pgf@shadingcount=\count296
 )
 (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -330,8 +328,8 @@ File: pgfcorerdf.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )))
 (/usr/share/texmf-dist/tex/latex/pgf/utilities/xxcolor.sty
 Package: xxcolor 2003/10/24 ver 0.1
-\XC@nummixins=\count296
-\XC@countmixins=\count297
+\XC@nummixins=\count297
+\XC@countmixins=\count298
 )
 (/usr/share/texmf-dist/tex/latex/base/atbegshi-ltx.sty
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
@@ -352,7 +350,7 @@ Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode found.
+Package pdftexcmds Info: \pdfdraftmode is ignored in DVI mode.
 )
 (/usr/share/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
@@ -384,11 +382,11 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 (/usr/share/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count298
+\c@section@level=\count299
 )
 \@linkdim=\dimen267
-\Hy@linkcounter=\count299
-\Hy@pagecounter=\count300
+\Hy@linkcounter=\count300
+\Hy@pagecounter=\count301
 
 (/usr/share/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2023-02-07 v7.00v Hyperref: PDFDocEncoding definition (HO)
@@ -401,7 +399,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 (/usr/share/texmf-dist/tex/generic/etexcmds/etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count301
+\Hy@SavedSpaceFactor=\count302
 
 (/usr/share/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2023-02-07 v7.00v Hyperref: PDF Unicode definition (HO)
@@ -418,7 +416,7 @@ Package hyperref Info: Plain pages OFF on input line 4192.
 Package hyperref Info: Backreferencing OFF on input line 4197.
 Package hyperref Info: Implicit mode OFF; no redefinition of LaTeX internals.
 Package hyperref Info: Bookmarks ON on input line 4425.
-\c@Hy@tempcnt=\count302
+\c@Hy@tempcnt=\count303
 
 (/usr/share/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip16
@@ -434,7 +432,7 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count303
+\Fld@menulength=\count304
 \Field@Width=\dimen269
 \Fld@charsize=\dimen270
 Package hyperref Info: Hyper figures OFF on input line 6042.
@@ -444,33 +442,40 @@ Package hyperref Info: backreferencing OFF on input line 6057.
 Package hyperref Info: Link coloring OFF on input line 6062.
 Package hyperref Info: Link coloring with OCG OFF on input line 6067.
 Package hyperref Info: PDF/A mode OFF on input line 6072.
-\Hy@abspage=\count304
+\Hy@abspage=\count305
 
 
 Package hyperref Message: Stopped early.
 
 )
-Package hyperref Info: Driver (autodetected): hpdftex.
- (/usr/share/texmf-dist/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2023-02-07 v7.00v Hyperref driver for pdfTeX
+Package hyperref Info: Driver (default): hdvips.
+ (/usr/share/texmf-dist/tex/latex/hyperref/hdvips.def
+File: hdvips.def 2023-02-07 v7.00v Hyperref driver for dvips
+
+(/usr/share/texmf-dist/tex/latex/hyperref/pdfmark.def
+File: pdfmark.def 2023-02-07 v7.00v Hyperref definitions for pdfmark specials
+\pdf@docset=\toks28
+\pdf@box=\box66
+\pdf@toks=\toks29
+\pdf@defaulttoks=\toks30
+\HyField@AnnotCount=\count306
+\Fld@listcount=\count307
+\c@bookmark@seq@number=\count308
+
+(/usr/share/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
 
 (/usr/share/texmf-dist/tex/latex/base/atveryend-ltx.sty
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
 kage
 with kernel methods
 )
-\Fld@listcount=\count305
-\c@bookmark@seq@number=\count306
-
-(/usr/share/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
-Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
-
 (/usr/share/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 85.
-))
+)))
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbaserequires.sty
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbasecompatibility.sty)
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbasefont.sty
@@ -479,7 +484,7 @@ Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
-\@emptytoks=\toks28
+\@emptytoks=\toks31
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
@@ -506,59 +511,59 @@ Package: translator 2021-05-31 v1.12d Easy translation of strings in LaTeX
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbasemisc.sty)
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbasetwoscreens.sty)
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbaseoverlay.sty
-\beamer@argscount=\count307
+\beamer@argscount=\count309
 \beamer@lastskipcover=\skip51
-\beamer@trivlistdepth=\count308
+\beamer@trivlistdepth=\count310
 )
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbasetitle.sty)
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbasesection.sty
-\c@lecture=\count309
-\c@part=\count310
-\c@section=\count311
-\c@subsection=\count312
-\c@subsubsection=\count313
+\c@lecture=\count311
+\c@part=\count312
+\c@section=\count313
+\c@subsection=\count314
+\c@subsubsection=\count315
 )
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbaseframe.sty
-\beamer@framebox=\box66
-\beamer@frametitlebox=\box67
-\beamer@zoombox=\box68
-\beamer@zoomcount=\count314
-\beamer@zoomframecount=\count315
+\beamer@framebox=\box67
+\beamer@frametitlebox=\box68
+\beamer@zoombox=\box69
+\beamer@zoomcount=\count316
+\beamer@zoomframecount=\count317
 \beamer@frametextheight=\dimen271
-\c@subsectionslide=\count316
+\c@subsectionslide=\count318
 \beamer@frametopskip=\skip52
 \beamer@framebottomskip=\skip53
 \beamer@frametopskipautobreak=\skip54
 \beamer@framebottomskipautobreak=\skip55
-\beamer@envbody=\toks29
+\beamer@envbody=\toks32
 \framewidth=\dimen272
-\c@framenumber=\count317
+\c@framenumber=\count319
 )
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbaseverbatim.sty
 \beamer@verbatimfileout=\write4
 )
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbaseframesize.sty
-\beamer@splitbox=\box69
-\beamer@autobreakcount=\count318
+\beamer@splitbox=\box70
+\beamer@autobreakcount=\count320
 \beamer@autobreaklastheight=\dimen273
-\beamer@frametitletoks=\toks30
-\beamer@framesubtitletoks=\toks31
+\beamer@frametitletoks=\toks33
+\beamer@framesubtitletoks=\toks34
 )
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbaseframecomponents.sty
-\beamer@footins=\box70
+\beamer@footins=\box71
 )
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbasecolor.sty)
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbasenotes.sty
-\beamer@frameboxcopy=\box71
+\beamer@frameboxcopy=\box72
 )
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbasetoc.sty)
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbasetemplates.sty
-\beamer@sbttoks=\toks32
+\beamer@sbttoks=\toks35
 
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbaseauxtemplates.sty
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbaseboxes.sty
-\bmb@box=\box72
-\bmb@colorbox=\box73
+\bmb@box=\box73
+\bmb@colorbox=\box74
 \bmb@boxwidth=\dimen274
 \bmb@boxheight=\dimen275
 \bmb@prevheight=\dimen276
@@ -572,11 +577,11 @@ Package: translator 2021-05-31 v1.12d Easy translation of strings in LaTeX
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbaselocalstructure.sty
 (/usr/share/texmf-dist/tex/latex/tools/enumerate.sty
 Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
-\@enLab=\toks33
+\@enLab=\toks36
 )
 \beamer@bibiconwidth=\skip56
-\c@figure=\count319
-\c@table=\count320
+\c@figure=\count321
+\c@table=\count322
 \abovecaptionskip=\skip57
 \belowcaptionskip=\skip58
 )
@@ -595,7 +600,7 @@ Package: amstext 2021/08/26 v2.01 AMS text
 
 (/usr/share/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks34
+\@emptytoks=\toks37
 \ex@=\dimen283
 ))
 (/usr/share/texmf-dist/tex/latex/amsmath/amsbsy.sty
@@ -605,19 +610,19 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 (/usr/share/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count321
+\inf@bad=\count323
 LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count322
-\leftroot@=\count323
+\uproot@=\count324
+\leftroot@=\count325
 LaTeX Info: Redefining \overline on input line 399.
 LaTeX Info: Redefining \colon on input line 410.
-\classnum@=\count324
-\DOTSCASE@=\count325
+\classnum@=\count326
+\DOTSCASE@=\count327
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
-\Mathstrutbox@=\box74
-\strutbox@=\box75
+\Mathstrutbox@=\box75
+\strutbox@=\box76
 LaTeX Info: Redefining \big on input line 722.
 LaTeX Info: Redefining \Big on input line 723.
 LaTeX Info: Redefining \bigg on input line 724.
@@ -625,47 +630,47 @@ LaTeX Info: Redefining \Bigg on input line 725.
 \big@size=\dimen285
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count326
+\macc@depth=\count328
 LaTeX Info: Redefining \bmod on input line 905.
 LaTeX Info: Redefining \pmod on input line 910.
 LaTeX Info: Redefining \smash on input line 940.
 LaTeX Info: Redefining \relbar on input line 970.
 LaTeX Info: Redefining \Relbar on input line 971.
-\c@MaxMatrixCols=\count327
+\c@MaxMatrixCols=\count329
 \dotsspace@=\muskip17
-\c@parentequation=\count328
-\dspbrk@lvl=\count329
-\tag@help=\toks35
-\row@=\count330
-\column@=\count331
-\maxfields@=\count332
-\andhelp@=\toks36
+\c@parentequation=\count330
+\dspbrk@lvl=\count331
+\tag@help=\toks38
+\row@=\count332
+\column@=\count333
+\maxfields@=\count334
+\andhelp@=\toks39
 \eqnshift@=\dimen286
 \alignsep@=\dimen287
 \tagshift@=\dimen288
 \tagwidth@=\dimen289
 \totwidth@=\dimen290
 \lineht@=\dimen291
-\@envbody=\toks37
+\@envbody=\toks40
 \multlinegap=\skip60
 \multlinetaggap=\skip61
-\mathdisplay@stack=\toks38
+\mathdisplay@stack=\toks41
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
 )
 (/usr/share/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2020/05/29 v2.20.6
-\thm@style=\toks39
-\thm@bodyfont=\toks40
-\thm@headfont=\toks41
-\thm@notefont=\toks42
-\thm@headpunct=\toks43
+\thm@style=\toks42
+\thm@bodyfont=\toks43
+\thm@headfont=\toks44
+\thm@notefont=\toks45
+\thm@headpunct=\toks46
 \thm@preskip=\skip62
 \thm@postskip=\skip63
 \thm@headsep=\skip64
-\dth@everypar=\toks44
+\dth@everypar=\toks47
 )
-\c@theorem=\count333
+\c@theorem=\count335
 )
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbasethemes.sty))
 (/usr/share/texmf-dist/tex/latex/beamer/beamerthemedefault.sty
@@ -699,17 +704,17 @@ nment
 
 (/usr/share/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count334
-\float@exts=\toks45
-\float@box=\box76
-\@float@everytoks=\toks46
-\@floatcapt=\box77
+\c@float@type=\count336
+\float@exts=\toks48
+\float@box=\box77
+\@float@everytoks=\toks49
+\@floatcapt=\box78
 )
 (/usr/share/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 )
-\@float@every@algorithm=\toks47
-\c@algorithm=\count335
+\@float@every@algorithm=\toks50
+\c@algorithm=\count337
 )
 (/usr/share/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
 Package: algpseudocode 
@@ -718,15 +723,15 @@ Package: algpseudocode
 Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
 
 Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
-\c@ALG@line=\count336
-\c@ALG@rem=\count337
-\c@ALG@nested=\count338
+\c@ALG@line=\count338
+\c@ALG@rem=\count339
+\c@ALG@nested=\count340
 \ALG@tlm=\skip79
 \ALG@thistlm=\skip80
-\c@ALG@Lnr=\count339
-\c@ALG@blocknr=\count340
-\c@ALG@storecount=\count341
-\c@ALG@tmpcounter=\count342
+\c@ALG@Lnr=\count341
+\c@ALG@blocknr=\count342
+\c@ALG@storecount=\count343
+\c@ALG@tmpcounter=\count344
 \ALG@tmplength=\skip81
 )
 Document Style - pseudocode environments for use with the `algorithmicx' style
@@ -736,23 +741,23 @@ ty
 Package: beamerthememetropolis 2017/01/23 v1.2 Metropolis Beamer theme
  (/usr/share/texmf-dist/tex/latex/pgfopts/pgfopts.sty
 Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
-\pgfopts@list@add@a@toks=\toks48
-\pgfopts@list@add@b@toks=\toks49
+\pgfopts@list@add@a@toks=\toks51
+\pgfopts@list@add@b@toks=\toks52
 )
 (/usr/share/texmf-dist/tex/latex/beamertheme-metropolis/beamerinnerthememetropo
 lis.sty
 Package: beamerinnerthememetropolis 2017/01/23 Metropolis inner theme
  (/usr/share/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count343
-\calc@Bcount=\count344
+\calc@Acount=\count345
+\calc@Bcount=\count346
 \calc@Adimen=\dimen294
 \calc@Bdimen=\dimen295
 \calc@Askip=\skip82
 \calc@Bskip=\skip83
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count345
+\calc@Ccount=\count347
 \calc@Cskip=\skip84
 )
 (/usr/share/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
@@ -761,7 +766,7 @@ Package: pgf 2023-01-15 v3.1.10 (3.1.10)
 
 (/usr/share/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
 File: pgfmoduleshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfnodeparttextbox=\box78
+\pgfnodeparttextbox=\box79
 )
 (/usr/share/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
 File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -779,8 +784,8 @@ Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
 Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
 \pgffor@iter=\dimen298
 \pgffor@skip=\dimen299
-\pgffor@stack=\toks50
-\pgffor@toks=\toks51
+\pgffor@stack=\toks53
+\pgffor@toks=\toks54
 ))
 (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
 Package: tikz 2023-01-15 v3.1.10 (3.1.10)
@@ -788,7 +793,7 @@ Package: tikz 2023-01-15 v3.1.10 (3.1.10)
 (/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.te
 x
 File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@plot@mark@count=\count346
+\pgf@plot@mark@count=\count348
 \pgfplotmarksize=\dimen300
 )
 \tikz@lastx=\dimen301
@@ -799,21 +804,21 @@ File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \tikz@lastmovetoy=\dimen306
 \tikzleveldistance=\dimen307
 \tikzsiblingdistance=\dimen308
-\tikz@figbox=\box79
-\tikz@figbox@bg=\box80
-\tikz@tempbox=\box81
-\tikz@tempbox@bg=\box82
-\tikztreelevel=\count347
-\tikznumberofchildren=\count348
-\tikznumberofcurrentchild=\count349
-\tikz@fig@count=\count350
+\tikz@figbox=\box80
+\tikz@figbox@bg=\box81
+\tikz@tempbox=\box82
+\tikz@tempbox@bg=\box83
+\tikztreelevel=\count349
+\tikznumberofchildren=\count350
+\tikznumberofcurrentchild=\count351
+\tikz@fig@count=\count352
  (/usr/share/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfmatrixcurrentrow=\count351
-\pgfmatrixcurrentcolumn=\count352
-\pgf@matrix@numberofcolumns=\count353
+\pgfmatrixcurrentrow=\count353
+\pgfmatrixcurrentcolumn=\count354
+\pgf@matrix@numberofcolumns=\count355
 )
-\tikz@expandcount=\count354
+\tikz@expandcount=\count356
 
 (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
 topaths.code.tex
@@ -851,10 +856,15 @@ Package beamerthememetropolis Warning: You need to compile with XeLaTeX or LuaL
 aTeX to use the Fira fonts on input line 95.
 
 )) (/usr/share/texmf-dist/tex/latex/beamer/beamercolorthemespruce.sty)
-(/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count355
-\l__pdf_internal_box=\box83
+(/usr/share/texmf-dist/tex/latex/l3backend/l3backend-dvips.def
+File: l3backend-dvips.def 2023-01-16 L3 backend support: dvips
+\l__pdf_internal_box=\box84
+\g__pdf_backend_object_int=\count357
+\l__pdf_backend_content_box=\box85
+\l__pdf_backend_model_box=\box86
+\g__pdf_backend_annotation_int=\count358
+\g__pdf_backend_link_int=\count359
+\g__pdf_backend_link_sf_int=\count360
 )
 (./presentation-exercise-15.aux
 
@@ -889,9 +899,9 @@ LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 24.
 LaTeX Font Info:    ... okay on input line 24.
 
 *geometry* driver: auto-detecting
-*geometry* detected driver: pdftex
+*geometry* detected driver: dvips
 *geometry* verbose mode - [ preamble ] result:
-* driver: pdftex
+* driver: dvips
 * paper: custom
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
@@ -922,33 +932,14 @@ LaTeX Font Info:    ... okay on input line 24.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-(/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count356
-\scratchdimen=\dimen309
-\scratchbox=\box84
-\nofMPsegments=\count357
-\nofMParguments=\count358
-\everyMPshowfont=\toks52
-\MPscratchCnt=\count359
-\MPscratchDim=\dimen310
-\MPnumerator=\count360
-\makeMPintoPDFobject=\count361
-\everyMPtoPDFconversion=\toks53
-) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
-Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
-85.
-
-(/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
-e
-))
 Package hyperref Info: Link coloring OFF on input line 24.
-
 (./presentation-exercise-15.out) (./presentation-exercise-15.out)
 \@outlinefile=\write5
 \openout5 = `presentation-exercise-15.out'.
+
+
+
+Package hyperref Warning: Rerun to get /PageLabels entry.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 24.
@@ -1032,11 +1023,10 @@ Overfull \vbox (44.55656pt too high) detected at line 27
 
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+]
 LaTeX Font Info:    Trying to load font information for U+msa on input line 36.
 
-
-(/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
+ (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 36.
@@ -1057,14 +1047,28 @@ thkerncmss.
 [3
 
 ]
-<./rect1.png, id=51, 918.43124pt x 495.8525pt>
-File: ./rect1.png Graphic file (type png)
-<use ./rect1.png>
-Package pdftex.def Info: ./rect1.png  used on input line 62.
-(pdftex.def)             Requested size: 342.02502pt x 184.65799pt.
- [4
 
- <./rect1.png>] [5
+! LaTeX Error: Cannot determine size of graphic in ./rect1.png (no BoundingBox)
+.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.62 \end{frame}
+                
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: ./rect1.png Graphic file (type eps)
+<./rect1.png>
+
+Class beamer Warning: Frame text is shrunk by a factor of 46.18378 percent inst
+ead of 10 percent on input line 62.
+
+[4
+
+] [5
 
 ]
 LaTeX Font Info:    Trying to load font information for TS1+cmss on input line 
@@ -1072,75 +1076,92 @@ LaTeX Font Info:    Trying to load font information for TS1+cmss on input line
  (/usr/share/texmf-dist/tex/latex/base/ts1cmss.fd
 File: ts1cmss.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
-<./concave.png, id=65, 439.6425pt x 227.85126pt>
-File: ./concave.png Graphic file (type png)
-<use ./concave.png>
-Package pdftex.def Info: ./concave.png  used on input line 83.
-(pdftex.def)             Requested size: 184.3758pt x 95.55432pt.
 
-Overfull \vbox (16.7152pt too high) detected at line 83
+! LaTeX Error: Cannot determine size of graphic in ./concave.png (no BoundingBo
+x).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.83 \end{frame}
+                
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: ./concave.png Graphic file (type eps)
+<./concave.png>
+Overfull \vbox (105.5477pt too high) detected at line 83
  []
 
 [6
 
-{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <./concave.pn
-g>]
-<./chords.png, id=74, 932.48375pt x 469.755pt>
-File: ./chords.png Graphic file (type png)
-<use ./chords.png>
-Package pdftex.def Info: ./chords.png  used on input line 98.
-(pdftex.def)             Requested size: 184.3758pt x 92.88132pt.
+]
 
-pdfTeX warning (ext4): destination with the same identifier (name{fig:question}
-) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
+! LaTeX Error: Cannot determine size of graphic in ./chords.png (no BoundingBox
+).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
 l.98 \end{frame}
                 
-Overfull \vbox (6.43802pt too high) detected at line 98
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: ./chords.png Graphic file (type eps)
+<./chords.png>
+Overfull \vbox (97.94353pt too high) detected at line 98
  []
 
 [7
 
- <./chords.png>] [8
+] [8
 
 ]
-<./direccio.png, id=90, 786.94pt x 779.91376pt>
-File: ./direccio.png Graphic file (type png)
-<use ./direccio.png>
-Package pdftex.def Info: ./direccio.png  used on input line 122.
-(pdftex.def)             Requested size: 184.3758pt x 182.72043pt.
 
-pdfTeX warning (ext4): destination with the same identifier (name{fig:question}
-) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
+! LaTeX Error: Cannot determine size of graphic in ./direccio.png (no BoundingB
+ox).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
 l.122 \end{frame}
                  
-Overfull \vbox (133.17978pt too high) detected at line 122
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: ./direccio.png Graphic file (type eps)
+<./direccio.png>
+Overfull \vbox (134.84618pt too high) detected at line 122
  []
 
 [9
 
- <./direccio.png>]
-<./launchrays.png, id=97, 1184.425pt x 596.2275pt>
-File: ./launchrays.png Graphic file (type png)
-<use ./launchrays.png>
-Package pdftex.def Info: ./launchrays.png  used on input line 141.
-(pdftex.def)             Requested size: 153.64493pt x 77.33943pt.
+]
 
-pdfTeX warning (ext4): destination with the same identifier (name{fig:question}
-) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
+! LaTeX Error: Cannot determine size of graphic in ./launchrays.png (no Boundin
+gBox).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
 l.141 \end{frame}
                  
-Overfull \vbox (18.06544pt too high) detected at line 141
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: ./launchrays.png Graphic file (type eps)
+<./launchrays.png>
+Overfull \vbox (94.37914pt too high) detected at line 141
  []
 
 [10
 
- <./launchrays.png>]
+]
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/sc' in size <10.95> not available
 (Font)              Font shape `OT1/cmr/m/sc' tried instead on input line 165.
@@ -1152,141 +1173,325 @@ Overfull \vbox (8.69203pt too high) detected at line 165
 [11
 
 ]
-<sweep0.png, id=111, 866.23625pt x 527.9725pt>
-File: sweep0.png Graphic file (type png)
-<use sweep0.png>
-Package pdftex.def Info: sweep0.png  used on input line 172.
-(pdftex.def)             Requested size: 307.28987pt x 187.29056pt.
- [12
 
- <./sweep0.png>]
-<sweep1.png, id=118, 866.23625pt x 527.9725pt>
-File: sweep1.png Graphic file (type png)
-<use sweep1.png>
-Package pdftex.def Info: sweep1.png  used on input line 172.
-(pdftex.def)             Requested size: 307.28987pt x 187.29056pt.
- [13
+! LaTeX Error: Cannot determine size of graphic in sweep0.png (no BoundingBox).
 
- <./sweep1.png>]
-<sweep2.png, id=126, 866.23625pt x 527.9725pt>
-File: sweep2.png Graphic file (type png)
-<use sweep2.png>
-Package pdftex.def Info: sweep2.png  used on input line 172.
-(pdftex.def)             Requested size: 307.28987pt x 187.29056pt.
- [14
 
- <./sweep2.png>]
-<sweep3.png, id=133, 866.23625pt x 527.9725pt>
-File: sweep3.png Graphic file (type png)
-<use sweep3.png>
-Package pdftex.def Info: sweep3.png  used on input line 172.
-(pdftex.def)             Requested size: 307.28987pt x 187.29056pt.
- [15
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.172 }
+       
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
- <./sweep3.png>]
-<sweep4.png, id=140, 866.23625pt x 527.9725pt>
-File: sweep4.png Graphic file (type png)
-<use sweep4.png>
-Package pdftex.def Info: sweep4.png  used on input line 172.
-(pdftex.def)             Requested size: 307.28987pt x 187.29056pt.
- [16
+File: sweep0.png Graphic file (type eps)
+<sweep0.png>
+Overfull \vbox (101.71916pt too high) detected at line 172
+ []
 
- <./sweep4.png>]
-<sweep5.png, id=147, 1125.20375pt x 685.56125pt>
-File: sweep5.png Graphic file (type png)
-<use sweep5.png>
-Package pdftex.def Info: sweep5.png  used on input line 172.
-(pdftex.def)             Requested size: 307.28987pt x 187.21709pt.
- [17
-
- <./sweep5.png>]
-<sweep6.png, id=154, 1125.20375pt x 685.56125pt>
-File: sweep6.png Graphic file (type png)
-<use sweep6.png>
-Package pdftex.def Info: sweep6.png  used on input line 172.
-(pdftex.def)             Requested size: 307.28987pt x 187.21709pt.
- [18
-
- <./sweep6.png>]
-<sweep7.png, id=161, 1125.20375pt x 685.56125pt>
-File: sweep7.png Graphic file (type png)
-<use sweep7.png>
-Package pdftex.def Info: sweep7.png  used on input line 172.
-(pdftex.def)             Requested size: 307.28987pt x 187.21709pt.
- [19
-
- <./sweep7.png>]
-<sweep8.png, id=169, 1126.2075pt x 685.56125pt>
-File: sweep8.png Graphic file (type png)
-<use sweep8.png>
-Package pdftex.def Info: sweep8.png  used on input line 172.
-(pdftex.def)             Requested size: 307.28987pt x 187.06018pt.
- [20
-
- <./sweep8.png>] [21
+[12
 
 ]
-<problem.png, id=183, 1209.51875pt x 608.2725pt>
-File: problem.png Graphic file (type png)
-<use problem.png>
-Package pdftex.def Info: problem.png  used on input line 188.
-(pdftex.def)             Requested size: 215.10196pt x 108.17563pt.
- [22
 
- <./problem.png>]
-<intersect0.png, id=190, 598.235pt x 461.725pt>
-File: intersect0.png Graphic file (type png)
-<use intersect0.png>
-Package pdftex.def Info: intersect0.png  used on input line 200.
-(pdftex.def)             Requested size: 184.3758pt x 142.30191pt.
+! LaTeX Error: Cannot determine size of graphic in sweep1.png (no BoundingBox).
 
-Overfull \vbox (8.7513pt too high) detected at line 200
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.172 }
+       
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: sweep1.png Graphic file (type eps)
+<sweep1.png>
+Overfull \vbox (101.71916pt too high) detected at line 172
+ []
+
+[13
+
+]
+
+! LaTeX Error: Cannot determine size of graphic in sweep2.png (no BoundingBox).
+
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.172 }
+       
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: sweep2.png Graphic file (type eps)
+<sweep2.png>
+Overfull \vbox (101.71916pt too high) detected at line 172
+ []
+
+[14
+
+]
+
+! LaTeX Error: Cannot determine size of graphic in sweep3.png (no BoundingBox).
+
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.172 }
+       
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: sweep3.png Graphic file (type eps)
+<sweep3.png>
+Overfull \vbox (101.71916pt too high) detected at line 172
+ []
+
+[15
+
+]
+
+! LaTeX Error: Cannot determine size of graphic in sweep4.png (no BoundingBox).
+
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.172 }
+       
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: sweep4.png Graphic file (type eps)
+<sweep4.png>
+Overfull \vbox (101.71916pt too high) detected at line 172
+ []
+
+[16
+
+]
+
+! LaTeX Error: Cannot determine size of graphic in sweep5.png (no BoundingBox).
+
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.172 }
+       
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: sweep5.png Graphic file (type eps)
+<sweep5.png>
+Overfull \vbox (101.71916pt too high) detected at line 172
+ []
+
+[17
+
+]
+
+! LaTeX Error: Cannot determine size of graphic in sweep6.png (no BoundingBox).
+
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.172 }
+       
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: sweep6.png Graphic file (type eps)
+<sweep6.png>
+Overfull \vbox (101.71916pt too high) detected at line 172
+ []
+
+[18
+
+]
+
+! LaTeX Error: Cannot determine size of graphic in sweep7.png (no BoundingBox).
+
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.172 }
+       
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: sweep7.png Graphic file (type eps)
+<sweep7.png>
+Overfull \vbox (101.71916pt too high) detected at line 172
+ []
+
+[19
+
+]
+
+! LaTeX Error: Cannot determine size of graphic in sweep8.png (no BoundingBox).
+
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.172 }
+       
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: sweep8.png Graphic file (type eps)
+<sweep8.png>
+Overfull \vbox (101.71916pt too high) detected at line 172
+ []
+
+[20
+
+] [21
+
+]
+
+! LaTeX Error: Cannot determine size of graphic in problem.png (no BoundingBox)
+.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.188 \end{frame}
+                 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: problem.png Graphic file (type eps)
+<problem.png>
+Overfull \vbox (102.80562pt too high) detected at line 188
+ []
+
+[22
+
+]
+
+! LaTeX Error: Cannot determine size of graphic in intersect0.png (no BoundingB
+ox).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.200 \end{frame}
+                 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: intersect0.png Graphic file (type eps)
+<intersect0.png>
+Overfull \vbox (50.83621pt too high) detected at line 200
  []
 
 [23
 
- <./intersect0.png>]
-<intersect1.png, id=197, 598.235pt x 461.725pt>
-File: intersect1.png Graphic file (type png)
-<use intersect1.png>
-Package pdftex.def Info: intersect1.png  used on input line 213.
-(pdftex.def)             Requested size: 184.3758pt x 142.30191pt.
+]
 
-Overfull \vbox (11.76828pt too high) detected at line 213
+! LaTeX Error: Cannot determine size of graphic in intersect1.png (no BoundingB
+ox).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.213 \end{frame}
+                 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: intersect1.png Graphic file (type eps)
+<intersect1.png>
+Overfull \vbox (53.8532pt too high) detected at line 213
  []
 
 [24
 
- <./intersect1.png>]
-File: intersect1.png Graphic file (type png)
-<use intersect1.png>
-Package pdftex.def Info: intersect1.png  used on input line 230.
-(pdftex.def)             Requested size: 132.13239pt x 101.9814pt.
+]
 
-Overfull \vbox (10.78802pt too high) detected at line 230
+! LaTeX Error: Cannot determine size of graphic in intersect1.png (no BoundingB
+ox).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.230 \end{frame}
+                 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: intersect1.png Graphic file (type eps)
+<intersect1.png>
+Overfull \vbox (40.94614pt too high) detected at line 230
  []
 
 [25
 
 ]
-<graph0.png, id=210, 1363.0925pt x 599.23875pt>
-File: graph0.png Graphic file (type png)
-<use graph0.png>
-Package pdftex.def Info: graph0.png  used on input line 243.
-(pdftex.def)             Requested size: 276.559pt x 121.57378pt.
- [26
 
- <./graph0.png>] [27
+! LaTeX Error: Cannot determine size of graphic in graph0.png (no BoundingBox).
+
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.243 \end{frame}
+                 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: graph0.png Graphic file (type eps)
+<graph0.png>
+Overfull \vbox (146.558pt too high) detected at line 243
+ []
+
+[26
+
+] [27
 
 ]
-<mis.png, id=223, 1118.1775pt x 422.57875pt>
-File: mis.png Graphic file (type png)
-<use mis.png>
-Package pdftex.def Info: mis.png  used on input line 278.
-(pdftex.def)             Requested size: 273.62106pt x 103.40695pt.
- [28
 
- <./mis.png>] [29
+! LaTeX Error: Cannot determine size of graphic in mis.png (no BoundingBox).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.276 \end{frame}
+                 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: mis.png Graphic file (type eps)
+<mis.png>
+
+Class beamer Warning: Frame text is shrunk by a factor of 42.59644 percent inst
+ead of 10 percent on input line 276.
+
+[28
+
+] [29
 
 ] [30
 
@@ -1304,8 +1509,7 @@ Package pdftex.def Info: mis.png  used on input line 278.
 \tf@snm=\write8
 \openout8 = `presentation-exercise-15.snm'.
 
-
-(./presentation-exercise-15.aux)
+ (./presentation-exercise-15.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -1314,27 +1518,12 @@ d.
 (rerunfilecheck)             Checksum: 7A6942E9ED7AAC3D3FD883F5F95A5434;585.
  ) 
 Here is how much of TeX's memory you used:
- 26412 strings out of 477985
- 532074 string characters out of 5840057
- 1861388 words of memory out of 5000000
- 45982 multiletter control sequences out of 15000+600000
+ 26150 strings out of 477986
+ 529998 string characters out of 5840083
+ 1861385 words of memory out of 5000000
+ 45781 multiletter control sequences out of 15000+600000
  522133 words of font info for 66 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 128i,13n,122p,2004b,835s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></u
-sr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmssi10.pfb></usr/share/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmssi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cms
-y10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1095.pfb>
-Output written on presentation-exercise-15.pdf (32 pages, 434426 bytes).
-PDF statistics:
- 325 PDF objects out of 1000 (max. 8388607)
- 219 compressed objects within 3 object streams
- 70 named destinations out of 1000 (max. 500000)
- 170 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 128i,13n,122p,2369b,835s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
+Output written on presentation-exercise-15.dvi (32 pages, 151088 bytes).
