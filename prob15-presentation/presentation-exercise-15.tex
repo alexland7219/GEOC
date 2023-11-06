@@ -250,7 +250,7 @@ complete description of the partition.
 	\end{block}
 
 	\begin{block}{Kőnig's theorem}
-    In any bipartite graph, the number of edges in a maximum matching equals the number of vertices in a minimum vertex cover.
+    In any bipartite graph, the number of edges in a maximum matching (max. set of non-adjacent edges) equals the number of vertices in a minimum vertex cover.
     	
 	\end{block}
 
@@ -264,7 +264,9 @@ complete description of the partition.
 
 \begin{frame}[t, shrink=10]{Max. Independent Set on Bipartite Graphs}
 
-Hopcroft-Karp algorithm for finding a maximum matching on a bipartite graph, in $O(n^{2.5})$, being $n$ the number of vertices.
+We can find the maximum matching by converting the bipartite graph into a flow network and running Ford-Fulkerson, in $O(n^3)$. 
+
+Hopcroft-Karp algorithm is faster with $O(n^{2.5})$, being $n$ the number of vertices.
 
 	Knowing the size of the MIS, computing the actual set can be accomplished in $\omega(n^{2.5})$ using a simple algorithm.
 	\vspace{10px}
