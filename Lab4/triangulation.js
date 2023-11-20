@@ -1,12 +1,20 @@
-/**
- TODO Replace this by your own, correct, triangulation function
- Triangles should be return as arrays of array of indexes
- e.g., [[1,2,3],[2,3,4]] encodes two triangles, where the indices are relative to the array points
-**/
+
+// Computes a triangulation and populates the DCEL
 function computeTriangulation(points) {
-	// Wrong code! Just connects consecutive three after sorting by x-coord
-	// Note that this does NOT return a triangulation, just a subset of it
-	//var newPoints = points.sort(function(a,b) { if ((a.x) < (b.x)) return -1; else return 1;})
+
+	var dcel_ds = new DCEL();
+	var delta = (extents.xmax - extents.xmin) / 2;
+
+	// Three point to add to the set
+	var a = {x: extents.xmin - delta, y:extents.ymin - delta, z:0};
+	var b = {x: extents.xmax + delta, y:extents.ymin - delta, z:0};
+	var c = {x: extents.xmin + (extents.xmax - extents.xmin) / 2, 
+			 y: extents.ymax + ((extents.ymax - a.y) / delta) * delta, z:0};
+	
+	dcel_ds.addVertex(a.x, a.y, false);
+	dcel_ds.addVertex(b.x, b.y, false);
+	dcel_ds.addVertex(c.x, c.y, false);
+
 	var k = Math.floor(points.length/3); 
 	var outputTriangles = new Array(k); 
 	
