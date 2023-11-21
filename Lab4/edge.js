@@ -12,5 +12,7 @@ class HalfEdge {
     computeAngle(dX, dY){
         this.angle = (Math.atan2(dY, dX) * 180) / Math.PI;
         this.twin.angle = (180 + this.angle) % 360;
+
+        console.log("Edge with dx = " + dX + " and dy " + dY + " has angle " + this.angle + " and twin " + this.twin.angle);
     }
 }

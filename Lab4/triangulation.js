@@ -15,15 +15,18 @@ function computeTriangulation(points) {
 	dcel_ds.addVertex(b.x, b.y, false);
 	dcel_ds.addVertex(c.x, c.y, false);
 
-	var k = Math.floor(points.length/3); 
-	var outputTriangles = new Array(k); 
-	
-	for (i=0;i<k;i++) {
-		// This is how one triangle is represented: array of three point indices
-		outputTriangles[i] = [3*i, 3*i+1, 3*i+2]; // Store INDICES, not points
+	// Adding the first three points to make a triangle
+	dcel_ds.addEdge(0, 1);
+	dcel_ds.addEdge(1, 2);
+	dcel_ds.addEdge(2, 0);
+
+	// Next points will have an offset of +3 (because of the first three points)
+	for (let i = 0; i < points.length; ++i){
+		
+		dcel_ds.addVertex(points[i].x, points[i].y, true);
 	}
 
-	return outputTriangles;
+	return [];
 }
 
 
