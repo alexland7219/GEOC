@@ -12,7 +12,7 @@ class DCEL {
     }
 
     getNextEdge(v, angle, ccw = true){
-        console.log("Getting next edge continuing at vertex " + v + " from an angle of " + angle);
+        console.log("Getting next edge continuing at vertex " + v + " from an angle of " + angle + " " + ccw);
         if (this.vxVector[v].edges == undefined || this.vxVector[v].edges.length == 0){
             return null;
         }
@@ -20,16 +20,18 @@ class DCEL {
         if (ccw){
             var x = this.vxVector[v].edges.reduce((accEdge, newEdge) => (
                 newEdge.angle == angle ? accEdge : (  // If the smallest angle is 0 (twin), really it's the last one
-                (angle - newEdge.angle) % 360 < (angle - accEdge.angle) ? newEdge : accEdge)
+                (angle - newEdge.angle) % 360 < (angle - accEdge.angle) % 360 ? newEdge : accEdge)
             ));
             console.log(x);
             return x;
         }
         else {
-            return this.vxVector[v].edges.reduce((accEdge, newEdge) => (
+            var x = this.vxVector[v].edges.reduce((accEdge, newEdge) => (
                 newEdge.angle == angle ? accEdge : (
-                (angle - newEdge.angle) % 360 > (angle - accEdge.angle) ? newEdge : accEdge)
+                (angle - newEdge.angle) % 360 > (angle - accEdge.angle) % 360 ? newEdge : accEdge)
             ));
+            console.log(x.twin);
+            return x.twin;
         }
     }
 
@@ -55,19 +57,14 @@ class DCEL {
         he1.computeAngle(this.vxVector[vB].x - this.vxVector[vA].x, this.vxVector[vB].y - this.vxVector[vA].y);
 
         he1.next = this.getNextEdge(vB, he2.angle, true);
+        he2.next = this.getNextEdge(vA, he1.angle, true);
+        he1.prev = this.getNextEdge(vA, he1.angle, false);
+        he2.prev = this.getNextEdge(vB, he2.angle, false);
 
         he1.next.prev = he1;
-
-        he2.next = this.getNextEdge(vA, he1.angle, true);
-
         he2.next.prev = he2;
-
-        he1.prev = this.getNextEdge(vB, he2.angle, false);
-
         he1.prev.next = he1;
-
-        he2.prev = this.getNextEdge(vA, he1.angle, false);
-
         he2.prev.next = he2;
+
     }
 }
