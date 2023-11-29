@@ -20,7 +20,7 @@ class DCEL {
         if (ccw){
             var x = this.vxVector[v].edges.reduce((accEdge, newEdge) => (
                 newEdge.angle == angle ? accEdge : (  // If the smallest angle is 0 (twin), really it's the last one
-                (angle - newEdge.angle) % 360 < (angle - accEdge.angle) % 360 ? newEdge : accEdge)
+                (angle - newEdge.angle + 360) % 360 < (angle - accEdge.angle + 360) % 360 ? newEdge : accEdge)
             ));
             //console.log(x);
             return x;
@@ -28,7 +28,7 @@ class DCEL {
         else {
             var x = this.vxVector[v].edges.reduce((accEdge, newEdge) => (
                 newEdge.angle == angle ? accEdge : (
-                (angle - newEdge.angle) % 360 > (angle - accEdge.angle) % 360 ? newEdge : accEdge)
+                (angle - newEdge.angle + 360) % 360 > (angle - accEdge.angle + 360) % 360 ? newEdge : accEdge)
             ));
             //console.log(x.twin);
             return x.twin;
@@ -36,6 +36,7 @@ class DCEL {
     }
 
     addEdge(vA, vB){
+
         if (this.vxVector.length <= Math.max(vA, vB)){
             console.log("ERROR: Unknown " + Math.max(vA, vB) + " vertex.");
             return;
@@ -66,5 +67,41 @@ class DCEL {
         he1.prev.next = he1;
         he2.prev.next = he2;
 
+    }
+
+    splitEdge(vA, vB, newPt){
+        // newPt must be new (not have any edges)
+        var dX = this.vxVector[vB].x - this.vxVector[vA].x;
+        var dY = this.vxVector[vB].y - this.vxVector[vA].y;
+
+        var he1 = this.egVector.find((edge) => edge.twin.from == vB && edge.from == vA);
+        var he2 = he1.twin;
+
+        var he3 = new HalfEdge(newPt, null, null, null, null, 0);
+        var he4 = new HalfEdge(newPt, null, null, null, null, 0);
+
+        this.egVector.push(he3); this.egVector.push(he4);
+
+        this.vxVector[newPt].edges.push(he4);
+        this.vxVector[newPt].edges.push(he3);
+
+        he1.next = he3;
+        he2.next = he4;
+
+        he3.angle = he1.angle;
+        he4.angle = he2.angle;
+
+        he1.twin = he4;
+        he2.twin = he3;
+        he3.twin = he2;
+        he4.twin = he1;
+
+        he3.prev = he1;
+        he4.prev = he2;
+
+        he3.next = this.getNextEdge(vB, he2.angle, true);
+        he4.next = this.getNextEdge(vA, he1.angle, true);
+
+        
     }
 }

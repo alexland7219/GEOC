@@ -14,6 +14,7 @@ style = {
 var points = inputJSON.points; // Requires inputJSON variable set in file
 var boundaries = inputJSON.boundaries; // This will be used in Lab 5
 var showBoundaries = false;
+var showLabels = false;
 
 // IMPORTANT: if you modify the points, e.g., adding three extra points for the containing triangle, make sure to call computeExtents afterwards
 var extents = computeExtents(points); // Required to fit points to canvas
@@ -66,7 +67,7 @@ function transformPointToCanvas(p) {
 }
 
 // Draws one point as a circle
-function drawPoint(ctx, style, origP) {
+function drawPoint(ctx, style, origP, index) {
 	var p = transformPointToCanvas(origP);
     ctx.lineWidth = style.point.width;
     ctx.strokeStyle = style.point.color;
@@ -77,7 +78,7 @@ function drawPoint(ctx, style, origP) {
     ctx.stroke();
 	
 	// Uncomment to draw label of each point next to it
-	//ctx.fillText(JSON.stringify(origP), p.x+5*style.point.width, p.y);
+	if (showLabels) ctx.fillText(index, p.x+6*style.point.width, p.y, 10);
 }
 
 // Draws triangles they are given in one array, an each triangle is an array of three point indices
@@ -120,7 +121,7 @@ function drawBoundaries(ctx) {
 function drawPoints(ctx, style, points) {
 	//For each pair draw pair after classifying intersection
 	for (var i = 0; i < points.length; i++) {
-		drawPoint(ctx, style, points[i]);
+		drawPoint(ctx, style, points[i], i);
 	}
 }
 
@@ -146,6 +147,9 @@ function redraw(){
 function toggleShowBoundaries() {
 	var checkBox = document.getElementById("showBoundariesCheckBox");
 	showBoundaries = checkBox.checked ;
+
+	var labelCheckBox = document.getElementById("showLabels");
+	showLabels = labelCheckBox.checked;
 	redraw();
 }
 
