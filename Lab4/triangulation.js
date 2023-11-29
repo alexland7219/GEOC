@@ -11,6 +11,13 @@ function computeTriangulation(points) {
 	var c = {x: extents.xmin + (extents.xmax - extents.xmin) / 2, 
 			 y: extents.ymax + ((extents.ymax - a.y) / delta) * delta, z:0};
 	
+	points.push(a);
+	points.push(b);
+	points.push(c);
+
+	// Ternary Tree
+	var tree_ds = new Ternary(a, b, c, points.length - 3, points.length - 2, points.length - 1);
+
 	dcel_ds.addVertex(a.x, a.y, false);
 	dcel_ds.addVertex(b.x, b.y, false);
 	dcel_ds.addVertex(c.x, c.y, false);
@@ -20,13 +27,21 @@ function computeTriangulation(points) {
 	dcel_ds.addEdge(1, 2);
 	dcel_ds.addEdge(2, 0);
 
-	// Next points will have an offset of +3 (because of the first three points)
-	for (let i = 0; i < points.length; ++i){
+	var finalSet = [];
+
+	for (let i = 0; i < points.length - 3; ++i){
 		
 		dcel_ds.addVertex(points[i].x, points[i].y, true);
+
+		tree_ds.addPoint(points[i], i);
+		
+		//finalSet.push([newEdges[0], newEdges[1], i]);
+		//finalSet.push([newEdges[1], newEdges[2], i]);
+		//finalSet.push([newEdges[2], newEdges[0], i]);
 	}
 
-	return [];
+	// DFS through the tree. Get smallest triangles.
+	return tree_ds.dfs();
 }
 
 

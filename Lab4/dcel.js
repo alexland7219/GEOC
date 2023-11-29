@@ -12,7 +12,7 @@ class DCEL {
     }
 
     getNextEdge(v, angle, ccw = true){
-        console.log("Getting next edge continuing at vertex " + v + " from an angle of " + angle + " " + ccw);
+        //console.log("Getting next edge continuing at vertex " + v + " from an angle of " + angle + " " + ccw);
         if (this.vxVector[v].edges == undefined || this.vxVector[v].edges.length == 0){
             return null;
         }
@@ -22,7 +22,7 @@ class DCEL {
                 newEdge.angle == angle ? accEdge : (  // If the smallest angle is 0 (twin), really it's the last one
                 (angle - newEdge.angle) % 360 < (angle - accEdge.angle) % 360 ? newEdge : accEdge)
             ));
-            console.log(x);
+            //console.log(x);
             return x;
         }
         else {
@@ -30,7 +30,7 @@ class DCEL {
                 newEdge.angle == angle ? accEdge : (
                 (angle - newEdge.angle) % 360 > (angle - accEdge.angle) % 360 ? newEdge : accEdge)
             ));
-            console.log(x.twin);
+            //console.log(x.twin);
             return x.twin;
         }
     }
