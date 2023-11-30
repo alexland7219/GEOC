@@ -38,7 +38,7 @@ class Node {
           else return {in: false, on: false};
         }
         else if (areas[2] == 0){
-        if (areas[1] * areas[0] >= 0) return {in: false, on: true, freeVx: this.idC};
+        if (areas[1] * areas[0] >= 0) return {in: false, on: true, freeVx: this.idB};
           else return {in: false, on: false};
       
         }
@@ -72,6 +72,7 @@ class Ternary {
                 return [this.node.idA, this.node.idB, this.node.idC];
     
             } else {
+
                 switch (myTest.freeVx){
                     case this.node.idA:
                         this.left = new Ternary(this.node.a, this.node.b, p, this.node.idA, this.node.idB, id);

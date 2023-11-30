@@ -27,7 +27,6 @@ function computeTriangulation(points) {
 	dcel_ds.addEdge(1, 0);
 	dcel_ds.addEdge(0, 2);
 
-	var finalSet = [];
 
 	for (let i = 3; i < points.length; ++i){
 		
@@ -43,6 +42,13 @@ function computeTriangulation(points) {
 			dcel_ds.addEdge(i, innerTriangle[0]);
 
 		}
+	}
+
+	// Finished. Only thing left is to create the faces.
+	var triangles = tree_ds.dfs();
+
+	for (let tidx = 0; tidx < triangles.length; ++tidx){
+		dcel_ds.addFace(triangles[tidx][0], triangles[tidx][1], triangles[tidx][2]);
 	}
 
 	console.log(dcel_ds);

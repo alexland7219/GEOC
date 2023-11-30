@@ -69,12 +69,85 @@ class DCEL {
 
     }
 
+    addFace(idA, idB, idC){
+        // New face
+        var f = new Face(idA, idB, idC);
+        this.fcVector.push(f);
+
+        // Start a walk from vA to vB
+        var e1 = this.vxVector[idA].edges.find((edge)=> edge.twin.from == idB);
+        if (e1 != undefined)
+        {
+            var e2 = e1.next;
+            var e3 = e2.next;
+
+            if (e3.next == e1 && e3.from == idC){
+                // Correct
+                e1.face = f;
+                e2.face = f;
+                e3.face = f;
+
+                f.edge = e1;
+                return;
+            }
+        }   
+        // Incorrect path. Try again
+        e1 = this.vxVector[idB].edges.find((edge)=> edge.twin.from == idA);
+        if (e1 != undefined){
+            e2 = e1.next;
+            e3 = e2.next;
+    
+            if (e3.next == e1 && e3.from == idC){
+                // Correct
+                e1.face = f;
+                e2.face = f;
+                e3.face = f;
+    
+                f.edge = e1;
+                return;
+            }    
+        }
+
+        // Degeneracy. Triangle has over 3 edges.
+        // We have to search a ton of stuff.
+        for (let ei = 0; ei < this.vxVector[idA].edges.length; ++ei){
+            // Traverse
+            var visitedEdges = [];
+            var visitedB = false;
+            var visitedC = false;
+
+            var nextEdge = this.vxVector[idA].edges[ei];
+            let i = 0;
+
+            while (i < 1000000){
+                visitedEdges.push(nextEdge);
+                nextEdge = nextEdge.next;
+
+                if (nextEdge.from == idB) visitedB = true;
+                else if (nextEdge.from == idC) visitedC = true;
+                else if (nextEdge.from == idA) break;
+
+                ++i;
+            }
+        
+            if (visitedB && visitedC){
+                for (let ej = 0; ej < visitedEdges.length; ++ej){
+                    visitedEdges[ej].face = f;
+                    f.edge = this.vxVector[idA].edges[ei];
+                }
+
+                break;
+            }
+        }
+    }
+
     splitEdge(vA, vB, newPt){
         // newPt must be new (not have any edges)
         var dX = this.vxVector[vB].x - this.vxVector[vA].x;
         var dY = this.vxVector[vB].y - this.vxVector[vA].y;
 
-        var he1 = this.egVector.find((edge) => edge.twin.from == vB && edge.from == vA);
+        //var he1 = this.egVector.find((edge) => edge.twin.from == vB && edge.from == vA);
+        var he1 = this.vxVector[vA].edges.find((edge) => edge.twin.from == vB);
         var he2 = he1.twin;
 
         var he3 = new HalfEdge(newPt, null, null, null, null, 0);
