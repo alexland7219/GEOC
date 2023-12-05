@@ -1,0 +1,49 @@
+<html>
+
+<head>
+<title>GEOC - Lab 4</title>
+</head>
+
+<h1>GEOC - Lab 4</h1>
+
+<canvas id="canvas" width="1024" height="768"></canvas>
+
+<!--Library that implements a DCEL-->
+<script type="text/javascript" src="dcel.js"></script>
+<script type="text/javascript" src="edge.js"></script>
+<script type="text/javascript" src="face.js"></script>
+
+<script type="text/javascript" src="vertex.js"></script>
+<script type="text/javascript" src="ternary.js"></script>
+
+<!------ TO DO: Modify this line to switch between input files ------>
+<!---<script type="text/javascript" src="toy_example.json.js"></script>--->
+<script type="text/javascript" src="toy_example.json.js"></script>
+
+<!---- External library to handle zoom and pan ---->
+<script type="text/javascript" src="zoompan.js"></script>
+
+<!---- This is were your triangulation code will be ---->
+<script type="text/javascript" src="triangulation.js"></script>
+
+<script type="text/javascript" src="script.js" defer></script>
+
+<br><br>
+<button onclick="doTriangulate()">Triangulate</button>
+
+<!---- This button will be used in lab 5 ----->
+<button onclick="doPruneBoundaries()">Prune boundaries</button>
+
+<br><br>
+<input type="checkbox" id="showBoundariesCheckBox" onclick="toggleShowBoundaries()"> Draw boundaries.
+<input type="checkbox" id="showLabels" onclick="toggleShowBoundaries()"> Draw labels.
+
+<br>
+<span id="time_label"></span>
+
+<br>
+
+<p><b>Controls</b>: Drag to pan. Click to zoom at that location. Shift-click to zoom out. Mousewheel up/down over the canvas to zoom in to/out from that location.
+<br><b>Note</b>: points are drawn with flipped y coordinates to simulate upwards y-axis. See function transformPointToCanvas().</p>
+
+</html> 
