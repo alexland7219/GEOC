@@ -47,17 +47,13 @@ function computeTriangulation(points) {
 
 		dcel_ds.addVertex(p);
 		
-		dcel_ds.addEdge(i, faceInside.vA);
-		dcel_ds.addEdge(i, faceInside.vB);
-		dcel_ds.addEdge(i, faceInside.vC);
-
 		var ab = undefined;
 		var bc = undefined;
 		var ca = undefined;
 
 		var currEdge = faceInside.edge;
 
-		while (ab == undefined && bc == undefined && ac == undefined)
+		while (ab == undefined || bc == undefined || ac == undefined)
 		{
 			// Find vertices ab, bc, ac
 			if (currEdge.from == faceInside.vA && currEdge.next.from == faceInside.vB) ab = currEdge;
@@ -67,6 +63,10 @@ function computeTriangulation(points) {
 			else if (currEdge.from == faceInside.vB && currEdge.next.from == faceInside.vA) ab = currEdge.twin;
 			else if (currEdge.from == faceInside.vC && currEdge.next.from == faceInside.vB) bc = currEdge.twin;
 		}
+
+		dcel_ds.addEdge(i, faceInside.vA);
+		dcel_ds.addEdge(i, faceInside.vB);
+		dcel_ds.addEdge(i, faceInside.vC);
 
 		// Now we know ab, bc and ca
 		dcel_ds.swapTest(i, ab);

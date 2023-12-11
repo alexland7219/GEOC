@@ -127,11 +127,17 @@ class DCEL {
         var b = edgeAB.next.from;
         var d = edgeAB.next.next.from;
 
-        if (d == vP) d = edgeAB.twin.next.next.from;
+        if (d == p) {
+            d = edgeAB.twin.next.next.from;
+            if (edgeAB.twin.next.next.next.from != a) return;
+        }
+        else if (edgeAB.next.next.next.from != a) return;
 
         if (this.inCircle(b, p, a, d))
         {
             // Flip edge AB
+            this.removeEdge(a, b);
+            this.addEdge(p, d);
 
             this.swapTest(p, edgeAD);
             this.swapTest(p, edgeBD);
@@ -211,6 +217,22 @@ class DCEL {
         }
     }
 
+    removeFace(startEdge)
+    {
+        var face = startEdge.face;
+        var nextEdge = startEdge.next;
+
+        startEdge.face = null;
+
+        while (startEdge != nextEdge)
+        {
+            nextEdge.face = null;
+            nextEdge = startEdge.next;
+        }
+
+        this.fcVector = this.fcVector.filter((item) => item.edge != face.edge)
+    }
+
     splitEdge(vA, vB, newPt){
         // newPt must be new (not have any edges)
         var dX = this.vxVector[vB].x - this.vxVector[vA].x;
@@ -259,8 +281,8 @@ class DCEL {
         var nextHe2 = he2.next;
 
         // Removing
-        this.vxVector[vA].removeEdge(he1);
-        this.vxVector[vB].removeEdge(he2);
+        this.vxVector[vA].removeHalfEdge(he1);
+        this.vxVector[vB].removeHalfEdge(he2);
 
         this.egVector = this.egVector.filter(item => (item.angle != he1.angle || item.from != he1.from));
         this.egVector = this.egVector.filter(item => (item.angle != he2.angle || item.from != he2.from));
