@@ -88,83 +88,216 @@ class Node {
 
 // This class implements a ternary tree for fast triangle lookup
 class Ternary {
-    constructor(a, b, c, idA, idB, idC){
+    constructor(a, b, c, idA, idB, idC, father){
         // a, b, c are the initial 3 vertices of the root triangle
         this.node = new Node(a, b, c, idA, idB, idC);
+        // Virtual: Boolean that tells us whether it is a triangle that disappeared
+        this.virtual = false;
+        this.virtLeft = null;
+        this.virtRight= null;
         // Children
         this.left = null;
         this.bottom = null;
         this.right = null;
+        // Father
+        this.father = father;
+
+        // Visited in the final DFS
+        this.visited = false;
     }
 
-    addPoint(p, id){        
-        if (this.left == null){
+    findANode(idA, idB, idC, reachedRoot)
+    {
+        if (!reachedRoot && this.father != null)
+        {
+            // Floating upwards
+            return this.father.findANode(idA, idB, idC, reachedRoot);
+        }
+        else if (!reachedRoot && this.father == null)
+        {
+            // Reached root node.
+            return this.findANode(idA, idB, idC, true);
+        }
+        else if (!this.virtual)
+        {
+            if ((this.node.idA == idA && this.node.idB == idB && this.node.idC == idC) || 
+                (this.node.idA == idA && this.node.idC == idB && this.node.idB == idC) || 
+                (this.node.idB == idA && this.node.idA == idB && this.node.idC == idC) || 
+                (this.node.idB == idA && this.node.idC == idB && this.node.idA == idC) || 
+                (this.node.idC == idA && this.node.idA == idB && this.node.idB == idC) || 
+                (this.node.idC == idA && this.node.idB == idB && this.node.idA == idC))
+            {
+                // we found the node
+                return this;
+            }
+            else {
+                // We are not the node. We need to find the children
+                if (this.left == null) return undefined; // Return empty
+
+                var x = this.left.findANode(idA, idB, idC, true);
+                if (x != undefined) return x;
+
+                x = this.right.findANode(idA, idB, idC, true);
+                if (x != undefined) return x;
+
+                if (this.bottom != null){
+                    x = this.bottom.findANode(idA, idB, idC, true);
+                    if (x != undefined) return x;
+                }
+
+                return undefined;
+            }
+        }
+        else {
+            // Virtual
+            var x = this.virtLeft.findANode(idA, idB, idC, true);
+            if (x != undefined) return x;
+
+            return this.virtRight.findANode(idA, idB, idC, true);
+        }
+    }
+
+    swap(idA, idB, idP, dcel_ds)
+    {
+        console.log("Checking swap of new triangle " + idA + " " + idB + " " + idP);
+        // Swaps A, B, P (D) if it is not Delaunay and possibly recursively more
+        var bflip = dcel_ds.swapTest(idA, idB, idP);
+
+        if (bflip.swap)
+        {
+            var idD     = bflip.other;
+            var nodeOne = this.findANode(idA, idB, idP, false);
+            var nodeTwo = this.findANode(idA, idB, idD, false);
+
+            var leftNewTriangle  = new Ternary(dcel_ds.vxVector[idA], dcel_ds.vxVector[idP], dcel_ds.vxVector[idD], idA, idP, idD, this);
+            var rightNewTriangle = new Ternary(dcel_ds.vxVector[idB], dcel_ds.vxVector[idP], dcel_ds.vxVector[idD], idB, idP, idD, this);
+
+            nodeOne.virtual = true;
+            nodeTwo.virtual = true;
+
+            nodeOne.virtLeft = leftNewTriangle;
+            nodeTwo.virtLeft = leftNewTriangle;
+            nodeOne.virtRight= rightNewTriangle;
+            nodeTwo.virtRight= rightNewTriangle;
+
+            dcel_ds.removeEdge(idA, idB);
+            dcel_ds.addEdge(idP, idD);
+
+            console.log("Swap! Changing edge " + idA + " "  + idB + "  by new edge " + idP + " " + idD);
+
+            // Now test for edges DA and DB
+            this.swap(idB, idD, idP, dcel_ds);
+            this.swap(idA, idD, idP, dcel_ds);
+        }
+
+    }
+
+    addPoint(p, id, dcel_ds){
+        if (this.left == null && !this.virtual){
 
             var myTest = this.node.pointInNode(p);
 
             if (myTest.in){
-                this.left = new Ternary(this.node.a, this.node.b, p, this.node.idA, this.node.idB, id);
-                this.right = new Ternary(this.node.a, this.node.c, p, this.node.idA, this.node.idC, id);
-                this.bottom = new Ternary(this.node.b, this.node.c, p, this.node.idB, this.node.idC, id);
+                this.left = new Ternary(this.node.a, this.node.b, p, this.node.idA, this.node.idB, id, this);
+                this.right = new Ternary(this.node.a, this.node.c, p, this.node.idA, this.node.idC, id, this);
+                this.bottom = new Ternary(this.node.b, this.node.c, p, this.node.idB, this.node.idC, id, this);
     
-                return [this.node.idA, this.node.idB, this.node.idC];
+                dcel_ds.addEdge(this.node.idA, id);
+                dcel_ds.addEdge(this.node.idB, id);
+                dcel_ds.addEdge(this.node.idC, id);
+
+                this.swap(this.node.idA, this.node.idB, id, dcel_ds);
+                this.swap(this.node.idB, this.node.idC, id, dcel_ds);
+                this.swap(this.node.idC, this.node.idA, id, dcel_ds);
+
+                return;
+                //return [this.node.idA, this.node.idB, this.node.idC];
     
             } else {
-
+                // DEGENERATE CASE
                 switch (myTest.freeVx){
                     case this.node.idA:
-                        this.left = new Ternary(this.node.a, this.node.b, p, this.node.idA, this.node.idB, id);
-                        this.right = new Ternary(this.node.a, this.node.c, p, this.node.idA, this.node.idC, id);
+                        this.left = new Ternary(this.node.a, this.node.b, p, this.node.idA, this.node.idB, id, this);
+                        this.right = new Ternary(this.node.a, this.node.c, p, this.node.idA, this.node.idC, id, this);
+                
+                        dcel_ds.splitEdge(this.node.idB, this.node.idC, id);
+                        dcel_ds.addEdge(id, this.node.idA);
 
-                        return [this.node.idA, this.node.idB, this.node.idC, null];
+                        return;
 
                     case this.node.idB:
-                        this.left = new Ternary(this.node.a, this.node.b, p, this.node.idA, this.node.idB, id);
-                        this.right = new Ternary(this.node.b, this.node.c, p, this.node.idB, this.node.idC, id);
+                        this.left = new Ternary(this.node.a, this.node.b, p, this.node.idA, this.node.idB, id, this);
+                        this.right = new Ternary(this.node.b, this.node.c, p, this.node.idB, this.node.idC, id, this);
 
-                        return [this.node.idB, this.node.idA, this.node.idC, null];
+                        dcel_ds.splitEdge(this.node.idA, this.node.idC, id);
+                        dcel_ds.addEdge(id, this.node.idB);
+
+                        return;
 
                     default: // idC
-                        this.left = new Ternary(this.node.a, this.node.c, p, this.node.idA, this.node.idC, id);
-                        this.right = new Ternary(this.node.b, this.node.c, p, this.node.idB, this.node.idC, id);
+                        this.left = new Ternary(this.node.a, this.node.c, p, this.node.idA, this.node.idC, id, this);
+                        this.right = new Ternary(this.node.b, this.node.c, p, this.node.idB, this.node.idC, id, this);
 
-                        return [this.node.idC, this.node.idA, this.node.idB, null];
+                        dcel_ds.splitEdge(this.node.idA, this.node.idB, id);
+                        dcel_ds.addEdge(id, this.node.idC);
+
+                        return;
                 }
             }
 
-        } else {
+        } else if (!this.virtual) {
             // Determine if the point lies on a segment
             var leftTest = this.left.node.pointInNode(p);
-            if (leftTest.in) return this.left.addPoint(p, id);
+            if (leftTest.in) return this.left.addPoint(p, id, dcel_ds);
 
             var rightTest= this.right.node.pointInNode(p);
-            if (rightTest.in) return this.right.addPoint(p, id);
+            if (rightTest.in) return this.right.addPoint(p, id, dcel_ds);
 
             var bottomTest = (this.bottom == null ? null : this.bottom.node.pointInNode(p));
-            if (bottomTest != null) if (bottomTest.in) return this.bottom.addPoint(p, id);
+            if (bottomTest != null) if (bottomTest.in) return this.bottom.addPoint(p, id, dcel_ds);
 
             // Point lies on the edge of this triangle, or between two subdivisions
 
-            if (leftTest.on) return this.left.addPoint(p, id);
-            else if (rightTest.on) return this.right.addPoint(p, id);
+            if (leftTest.on) return this.left.addPoint(p, id, dcel_ds);
+            else if (rightTest.on) return this.right.addPoint(p, id, dcel_ds);
             else if (bottomTest != null){
-                if (bottomTest.on) return this.bottom.addPoint(p, id);
+                if (bottomTest.on) return this.bottom.addPoint(p, id, dcel_ds);
             }
 
+        } else {
+            // Virtual node. We have to test in which of the two triangles lies
+            var leftTest = this.virtLeft.node.pointInNode(p);
+            if (leftTest.in) return this.virtLeft.addPoint(p, id, dcel_ds);
+
+            var rightTest = this.virtRight.node.pointInNode(p);
+            if (rightTest.in) return this.virtRight.addPoint(p, id, dcel_ds);
         }
     }
 
-    // Returns a list of all triangles (triplets). Only leaves count
+    // Returns a list of all triangles (triplets).
     dfs(){
-        if (this.left == null){
-            return [[this.node.idA, this.node.idB, this.node.idC]];
+        if (!this.virtual && this.left == null){
+            if (!this.visited){
+                this.visited = true;
+                return [[this.node.idA, this.node.idB, this.node.idC]];
+            }
+            else return [];
         }
-        else {
+        else if (!this.virtual){
             var retList = [];
 
             retList = retList.concat(this.left.dfs());
             retList = retList.concat(this.right.dfs());
             if (this.bottom != null) retList = retList.concat(this.bottom.dfs());
+
+            return retList;
+        }
+        else {
+            // Virtual node
+            var retList = [];
+
+            retList = retList.concat(this.virtLeft.dfs());
+            retList = retList.concat(this.virtRight.dfs());
 
             return retList;
         }

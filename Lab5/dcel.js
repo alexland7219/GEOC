@@ -72,8 +72,8 @@ class DCEL {
 
     determinant3x3(M){
         // Sarrus law
-        pos = M[0][0] * M[1][1] * M[2][2] + M[0][1] * M[1][2] * M[2][0] + M[0][2] * M[1][0] * M[2][1];
-        neg = M[0][2] * M[1][1] * M[2][0] + M[0][1] * M[1][0] * M[2][2] + M[0][0] * M[1][2] * M[2][1];
+        var pos = M[0][0] * M[1][1] * M[2][2] + M[0][1] * M[1][2] * M[2][0] + M[0][2] * M[1][0] * M[2][1];
+        var neg = M[0][2] * M[1][1] * M[2][0] + M[0][1] * M[1][0] * M[2][2] + M[0][0] * M[1][2] * M[2][1];
         
         return pos - neg;
     }
@@ -106,8 +106,8 @@ class DCEL {
                 [dbx, dby, dbx*dbx + dby*dby],
                 [dcx, dcy, dcx*dcx + dcy*dcy]];
 
-        var det = determinant3x3(mx);
-        var ccw = testCCWorder(circle_points);
+        var det = this.determinant3x3(mx);
+        var ccw = this.testCCWorder(circle_points);
 
         if (det == 0){
             // On the circle
@@ -116,33 +116,32 @@ class DCEL {
         else return false;
     }
 
-
-    swapTest(p, edgeAB)
+    swapTest(idA, idB, idP)
     {
-        // Swap test
-        // Will also swap recursively
+        console.log("DCEL: Swap test for vertices " + idA + ' ' + idB + ' ' + idP);
+        // Test whether point P lies inside circumference ABD, where D is the opposite vertex.
+        // If there is no D (external edge AB), then returns false;
 
-        // First determine d, the opposing vertex of the edge A-B
-        var a = edgeAB.from;
-        var b = edgeAB.next.from;
+        var edgeAB = this.egVector.find((edge)=> edge.from == idA && edge.next.from == idB);
+
         var d = edgeAB.next.next.from;
 
-        if (d == p) {
-            d = edgeAB.twin.next.next.from;
-            if (edgeAB.twin.next.next.next.from != a) return;
-        }
-        else if (edgeAB.next.next.next.from != a) return;
+        console.log(edgeAB);
 
-        if (this.inCircle(b, p, a, d))
+        if (d == idP)
         {
-            // Flip edge AB
-            this.removeEdge(a, b);
-            this.addEdge(p, d);
-
-            this.swapTest(p, edgeAD);
-            this.swapTest(p, edgeBD);
+            d = edgeAB.twin.next.next.from;
+            if (edgeAB.twin.next.next.next.from != idA) return {swap:false};
         }
+        else if (edgeAB.next.next.next.from != idA) return {swap:false};
 
+        console.log("Opposite is " + d);
+
+        var k = this.inCircle(idB, idP, idA, d);
+
+        console.log(k);
+
+        return {swap:k, other:d};
     }
 
     addFace(idA, idB, idC){
