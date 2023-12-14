@@ -17,6 +17,7 @@ function computeTriangulation(points) {
 
 	// Ternary Tree
 	var tree_ds = new Ternary(a, b, c, 2, 1, 0, null);
+	tree_ds.root = tree_ds;
 
 	dcel_ds.addVertex(c.x, c.y, false);
 	dcel_ds.addVertex(b.x, b.y, false);
@@ -28,10 +29,10 @@ function computeTriangulation(points) {
 	dcel_ds.addEdge(0, 2);
 
 	for (let i = 3; i < points.length; ++i){
-		
+		console.log("Vertex " + i);
+
 		dcel_ds.addVertex(points[i].x, points[i].y, true);
 		tree_ds.addPoint(points[i], i, dcel_ds);
-		
 	}
 
 	// Finished. Only thing left is to create the faces.

@@ -11,7 +11,7 @@ style = {
 }
 
 // This is the actual input
-var points = inputJSON.points; // Requires inputJSON variable set in file
+var points = inputJSON.points.slice(0,110); // Requires inputJSON variable set in file
 var boundaries = inputJSON.boundaries; // This will be used in Lab 5
 var showBoundaries = false;
 var showLabels = false;

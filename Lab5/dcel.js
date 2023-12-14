@@ -110,7 +110,7 @@ class DCEL {
         var ccw = this.testCCWorder(circle_points);
 
         if (det == 0){
-            // On the circle
+            return false;
         }
         else if ((det > 0 && ccw) || (det < 0 && !ccw)) return true;
         else return false;
@@ -124,6 +124,11 @@ class DCEL {
 
         var edgeAB = this.egVector.find((edge)=> edge.from == idA && edge.next.from == idB);
 
+        if (edgeAB == undefined) {
+            console.log("error undefined edge from " + idA + " to " + idB);
+            console.log(this);
+        }
+
         var d = edgeAB.next.next.from;
 
         console.log(edgeAB);
@@ -131,11 +136,9 @@ class DCEL {
         if (d == idP)
         {
             d = edgeAB.twin.next.next.from;
-            if (edgeAB.twin.next.next.next.from != idA) return {swap:false};
+            if (edgeAB.twin.next.next.next.from != idB) return {swap:false};
         }
         else if (edgeAB.next.next.next.from != idA) return {swap:false};
-
-        console.log("Opposite is " + d);
 
         var k = this.inCircle(idB, idP, idA, d);
 
@@ -270,7 +273,6 @@ class DCEL {
     }
 
     removeEdge(vA, vB){
-
         var he1 = this.vxVector[vA].edges.find((edge) => edge.twin.from == vB);
         var he2 = he1.twin;
 
@@ -290,5 +292,6 @@ class DCEL {
         prevHe2.next = this.getNextEdge(vB, prevHe2.twin.angle, true);
         nextHe1.prev = this.getNextEdge(vB, nextHe1.angle, false);
         nextHe2.prev = this.getNextEdge(vA, nextHe2.angle, false);
+
     }
 }
