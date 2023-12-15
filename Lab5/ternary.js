@@ -88,6 +88,8 @@ class Node {
 
 // This class implements a ternary tree for fast triangle lookup
 class Ternary {
+    static mapToFind = new Map();
+
     constructor(a, b, c, idA, idB, idC, root){
         // a, b, c are the initial 3 vertices of the root triangle
         this.node = new Node(a, b, c, idA, idB, idC);
@@ -104,81 +106,20 @@ class Ternary {
 
         // Visited in the final DFS
         this.visited = false;
+
+        Ternary.mapToFind.set(JSON.stringify([idA, idB, idC]), this);
     }
-    /*
-    findANode(idA, idB, idC)
+
+    static findANode(idA, idB, idC)
     {
-        var debug = (idA == 39 && idB == 2 && idC == 37);
+        var x = Ternary.mapToFind.get(JSON.stringify([idA, idB, idC]));
+        if (x == undefined) x = Ternary.mapToFind.get(JSON.stringify([idA, idC, idB]));
+        if (x == undefined) x = Ternary.mapToFind.get(JSON.stringify([idB, idA, idC]));
+        if (x == undefined) x = Ternary.mapToFind.get(JSON.stringify([idB, idC, idA]));
+        if (x == undefined) x = Ternary.mapToFind.get(JSON.stringify([idC, idA, idB]));
+        if (x == undefined) x = Ternary.mapToFind.get(JSON.stringify([idC, idB, idA]));
 
-        if (debug) console.log(this);
-
-        if (!this.virtual)
-        {
-            if ((this.node.idA == idA && this.node.idB == idB && this.node.idC == idC) || 
-                (this.node.idA == idA && this.node.idC == idB && this.node.idB == idC) || 
-                (this.node.idB == idA && this.node.idA == idB && this.node.idC == idC) || 
-                (this.node.idB == idA && this.node.idC == idB && this.node.idA == idC) || 
-                (this.node.idC == idA && this.node.idA == idB && this.node.idB == idC) || 
-                (this.node.idC == idA && this.node.idB == idB && this.node.idA == idC))
-            {
-                // we found the node
-                return this;
-            }
-            else {
-                // We are not the node. We need to find the children
-                if (this.left == null) return undefined; // Return empty
-
-                var x = this.left.findANode(idA, idB, idC);
-                if (x != undefined) return x;
-
-                x = this.right.findANode(idA, idB, idC);
-                if (x != undefined) return x;
-
-                if (this.bottom != null){
-                    x = this.bottom.findANode(idA, idB, idC);
-                    if (x != undefined) return x;
-                }
-
-                return undefined;
-            }
-        }
-        else {
-            // Virtual
-            var x = this.virtLeft.findANode(idA, idB, idC);
-            if (x != undefined) return x;
-
-            return this.virtRight.findANode(idA, idB, idC);
-        }
-    }*/
-
-    findANode(idA, idB, idC, dcel_ds)
-    {
-        var p = {'x': (dcel_ds.vxVector[idA].x + dcel_ds.vxVector[idB].x + dcel_ds.vxVector[idC].x)/3,
-                 'y': (dcel_ds.vxVector[idA].y + dcel_ds.vxVector[idB].y + dcel_ds.vxVector[idC].y)/3};
-
-        if (this.virtual)
-        {
-            var leftTest = this.virtLeft.node.pointInNode(p);
-            if (leftTest.in) return this.virtLeft.findANode(idA, idB, idC, dcel_ds);
-
-            var rightTest = this.virtRight.node.pointInNode(p);
-            if (rightTest.in) return this.virtRight.findANode(idA, idB, idC, dcel_ds);
-        }
-        else if (this.left == null)
-        {
-            return this;
-        }
-        else 
-        {
-            var leftTest = this.left.node.pointInNode(p);
-            if (leftTest.in) return this.left.findANode(idA, idB, idC, dcel_ds);
-
-            var rightTest= this.right.node.pointInNode(p);
-            if (rightTest.in) return this.right.findANode(idA, idB, idC, dcel_ds);
-
-            var bottomTest = (this.bottom == null ? null : this.bottom.node.pointInNode(p));
-            if (bottomTest != null) if (bottomTest.in) return this.bottom.findANode(idA, idB, idC, dcel_ds);
-        }
+        return x;
     }
 
     swap(idA, idB, idP, dcel_ds)
@@ -189,8 +130,14 @@ class Ternary {
         if (bflip.swap)
         {
             var idD     = bflip.other;
-            var nodeOne = this.root.findANode(idA, idB, idP, dcel_ds);            
-            var nodeTwo = this.root.findANode(idA, idB, idD, dcel_ds);
+            var nodeOne = Ternary.findANode(idA, idB, idP);
+            if (nodeOne == undefined){
+                console.log(Ternary.mapToFind);
+                console.log(Ternary.mapToFind.get([1, 3, 4]));
+                console.log("I was just trying to find node " + idA + ' ' + idB + " " + idP + " please");
+                throw new Error("another fuckup");
+            }         
+            var nodeTwo = Ternary.findANode(idA, idB, idD);
 
             var leftNewTriangle  = new Ternary(dcel_ds.vxVector[idA], dcel_ds.vxVector[idP], dcel_ds.vxVector[idD], idA, idP, idD, this.root);
             var rightNewTriangle = new Ternary(dcel_ds.vxVector[idB], dcel_ds.vxVector[idP], dcel_ds.vxVector[idD], idB, idP, idD, this.root);
@@ -207,37 +154,49 @@ class Ternary {
             dcel_ds.addEdge(idP, idD);
 
             // Now test for edges DA and DB
+            console.log("recursion in swap");
             this.swap(idB, idD, idP, dcel_ds);
             this.swap(idA, idD, idP, dcel_ds);
         }
+
+        console.log("We returned false so we outta here (swap)");
     }
 
 
     addPoint(p, id, dcel_ds){
+        console.log("Add point");
+
         if (this.left == null && !this.virtual){
 
             var myTest = this.node.pointInNode(p);
 
             if (myTest.in){
+
                 this.left = new Ternary(this.node.a, this.node.b, p, this.node.idA, this.node.idB, id, this.root);
                 this.right = new Ternary(this.node.a, this.node.c, p, this.node.idA, this.node.idC, id, this.root);
                 this.bottom = new Ternary(this.node.b, this.node.c, p, this.node.idB, this.node.idC, id, this.root);
-    
+
                 dcel_ds.addEdge(id, this.node.idA);
                 dcel_ds.addEdge(id, this.node.idB);
                 dcel_ds.addEdge(id, this.node.idC);
 
                 console.log('adding point inside triangle ' + this.node.idA + " " + this.node.idB + " " + this.node.idC);
-
+                
+                console.log("Cheecking the main swap 1");
                 this.swap(this.node.idA, this.node.idB, id, dcel_ds);
+                console.log("Cheecking the main swap 2");
                 this.swap(this.node.idB, this.node.idC, id, dcel_ds);
+                console.log("Cheecking the main swap 3");
                 this.swap(this.node.idC, this.node.idA, id, dcel_ds);
+
+                console.log("Made the necessary swaps. Not exiting");
 
                 return;
                 //return [this.node.idA, this.node.idB, this.node.idC];
     
             } else {
                 console.log("Degeneracy on addPoint with id " + id);
+                throw new Error("FUCKING DEGENERAYE");
                 // DEGENERATE CASE
                 switch (myTest.freeVx){
                     case this.node.idA:
@@ -300,14 +259,17 @@ class Ternary {
 
     // Returns a list of all triangles (triplets).
     dfs(){
+        if (this.visited) return [];
+
+        this.visited = true;
+
         if (!this.virtual && this.left == null){
-            if (!this.visited){
-                this.visited = true;
-                return [[this.node.idA, this.node.idB, this.node.idC]];
-            }
-            else return [];
+            console.log("NOT Virtual and Leaf");
+
+            return [[this.node.idA, this.node.idB, this.node.idC]];
         }
         else if (!this.virtual){
+            console.log("Not virtual not leaf");
             var retList = [];
 
             retList = retList.concat(this.left.dfs());
@@ -317,6 +279,7 @@ class Ternary {
             return retList;
         }
         else {
+            console.log("virtual");
             // Virtual node
             var retList = [];
 

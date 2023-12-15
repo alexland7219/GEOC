@@ -136,13 +136,20 @@ class DCEL {
         if (d == idP)
         {
             d = edgeAB.twin.next.next.from;
-            if (edgeAB.twin.next.next.next.from != idB) return {swap:false};
+            if (edgeAB.twin.next.next.next.from != idB) {
+                console.log("Returning false");
+                return {swap:false};
+            }
         }
-        else if (edgeAB.next.next.next.from != idA) return {swap:false};
+        else if (edgeAB.next.next.next.from != idA){
+            console.log("Returning false");
+            return {swap:false};
+        }
 
         var k = this.inCircle(idB, idP, idA, d);
 
         console.log(k);
+        console.log("Outta swapTest");
 
         return {swap:k, other:d};
     }

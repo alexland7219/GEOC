@@ -9,7 +9,7 @@ function computeTriangulation(points) {
 	var a = {x: extents.xmin - delta, y:extents.ymin - delta, z:0};
 	var b = {x: extents.xmax + delta, y:extents.ymin - delta, z:0};
 	var c = {x: extents.xmin + (extents.xmax - extents.xmin) / 2, 
-			 y: extents.ymax + ((extents.ymax - a.y) / delta) * delta + 5, z:0};
+			 y: extents.ymax + ((extents.ymax - a.y) / delta) * delta + 4, z:0};
 	
 	points.unshift(a);
 	points.unshift(b);
@@ -33,6 +33,9 @@ function computeTriangulation(points) {
 
 		dcel_ds.addVertex(points[i].x, points[i].y, true);
 		tree_ds.addPoint(points[i], i, dcel_ds);
+
+		console.log("NEXTUP");
+		console.log(points.length);
 	}
 
 	// Finished. Only thing left is to create the faces.
