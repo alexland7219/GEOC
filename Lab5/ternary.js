@@ -105,7 +105,7 @@ class Ternary {
         this.root = root;
 
         // Visited in the final DFS
-        this.visited = false;
+        this.visited = [false, false];
 
         Ternary.mapToFind.set(JSON.stringify([idA, idB, idC]), this);
     }
@@ -258,10 +258,10 @@ class Ternary {
     }
 
     // Returns a list of all triangles (triplets).
-    dfs(){
-        if (this.visited) return [];
+    dfs(visOffset){
+        if (this.visited[visOffset]) return [];
 
-        this.visited = true;
+        this.visited[visOffset] = true;
 
         if (!this.virtual && this.left == null){
             //console.log("NOT Virtual and Leaf");
@@ -272,9 +272,9 @@ class Ternary {
             //console.log("Not virtual not leaf");
             var retList = [];
 
-            retList = retList.concat(this.left.dfs());
-            retList = retList.concat(this.right.dfs());
-            if (this.bottom != null) retList = retList.concat(this.bottom.dfs());
+            retList = retList.concat(this.left.dfs(visOffset));
+            retList = retList.concat(this.right.dfs(visOffset));
+            if (this.bottom != null) retList = retList.concat(this.bottom.dfs(visOffset));
 
             return retList;
         }
@@ -283,8 +283,8 @@ class Ternary {
             // Virtual node
             var retList = [];
 
-            retList = retList.concat(this.virtLeft.dfs());
-            retList = retList.concat(this.virtRight.dfs());
+            retList = retList.concat(this.virtLeft.dfs(visOffset));
+            retList = retList.concat(this.virtRight.dfs(visOffset));
 
             return retList;
         }
