@@ -84,6 +84,25 @@ class Node {
         else if ((det > 0 && ccw) || (det < 0 && !ccw)) return true;
         else return false;
     }
+
+    getPointsInCCW() {
+        // Gets the points in CCW order
+        let vector1 = { x: this.b.x - this.a.x, y: this.b.y - this.a.y };
+        let vector2 = { x: this.c.x - this.b.x, y: this.c.y - this.b.y };
+      
+        // Calculate the cross product
+        let crossProduct = vector1.x * vector2.y - vector1.y * vector2.x;
+      
+        // Sort the points based on CCW order
+        if (crossProduct > 0) {
+          return [this.idA, this.idB, this.idC];
+        } else if (crossProduct < 0) {
+          return [this.idC, this.idB, this.idA];
+        } else {
+          // Points are collinear, return them in the order they were given
+          return [this.idA, this.idB, this.idC];
+        } 
+    }
 }
 
 // This class implements a ternary tree for fast triangle lookup
@@ -195,8 +214,7 @@ class Ternary {
                 //return [this.node.idA, this.node.idB, this.node.idC];
     
             } else {
-                console.log("Degeneracy on addPoint with id " + id);
-                throw new Error("FUCKING DEGENERAYE");
+
                 // DEGENERATE CASE
                 switch (myTest.freeVx){
                     case this.node.idA:
@@ -266,7 +284,7 @@ class Ternary {
         if (!this.virtual && this.left == null){
             //console.log("NOT Virtual and Leaf");
 
-            return [[this.node.idA, this.node.idB, this.node.idC]];
+            return [this.node.getPointsInCCW()];
         }
         else if (!this.virtual){
             //console.log("Not virtual not leaf");

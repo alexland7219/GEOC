@@ -17,7 +17,7 @@
 	  <script type="text/javascript" src="vertex.js"></script>
 	  <script type="text/javascript" src="ternary.js"></script>
 			
-	  <script type="text/javascript" src="Lanzarote-degen.json.js"></script>
+	  <script type="text/javascript" src="Lanzarote-small.json.js"></script>
 	  <!----<script type="text/javascript" src="Lanzarote-degen.json.js"></script>---->
 	  <!----<script type="text/javascript" src="Lanzarote.json.js"></script>---->
 		
@@ -123,7 +123,7 @@
 		
 		// IMPORTANT Here we invoke the triangulation method
 		//           Make sure your methods returns the triangles AFTER PRUNNING boundaries
-		var triangles = computeTriangulation(points);
+		var triangles = computeTriangulation(points, inputJSON.boundaries)[0];
 			
 		for (var i=0;i<triangles.length;i++) {
 			scene.add(createTriangleMesh(triangles[i]));
