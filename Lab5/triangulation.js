@@ -30,12 +30,10 @@ function computeTriangulation(points) {
 
 	for (let i = 3; i < points.length; ++i){
 		console.log("Vertex " + i);
+		//if (i == 564) break;
 
 		dcel_ds.addVertex(points[i].x, points[i].y, true);
 		tree_ds.addPoint(points[i], i, dcel_ds);
-
-		console.log("NEXTUP");
-		console.log(points.length);
 	}
 
 	// Finished. Only thing left is to create the faces.

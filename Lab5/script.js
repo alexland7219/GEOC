@@ -11,7 +11,7 @@ style = {
 }
 
 // This is the actual input
-var points = inputJSON.points.slice(0,110); // Requires inputJSON variable set in file
+var points = inputJSON.points; // Requires inputJSON variable set in file
 var boundaries = inputJSON.boundaries; // This will be used in Lab 5
 var showBoundaries = false;
 var showLabels = false;
@@ -71,14 +71,15 @@ function drawPoint(ctx, style, origP, index) {
 	var p = transformPointToCanvas(origP);
     ctx.lineWidth = style.point.width;
     ctx.strokeStyle = style.point.color;
+	if (index == 564) ctx.strokeStyle = "Red";
     ctx.fillStyle = style.point.fill;
     ctx.beginPath();
     ctx.arc(p.x, p.y, style.point.radius, style.point.arc1, style.point.arc2, true);
     ctx.fill();
     ctx.stroke();
-	
+	ctx.font = "1px Arial";
 	// Uncomment to draw label of each point next to it
-	if (showLabels) ctx.fillText(index, p.x+6*style.point.width, p.y, 10);
+	if (showLabels) ctx.fillText(index, p.x+6*style.point.width, p.y);
 }
 
 // Draws triangles they are given in one array, an each triangle is an array of three point indices

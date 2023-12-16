@@ -119,6 +119,11 @@ class Ternary {
         if (x == undefined) x = Ternary.mapToFind.get(JSON.stringify([idC, idA, idB]));
         if (x == undefined) x = Ternary.mapToFind.get(JSON.stringify([idC, idB, idA]));
 
+        if (x.virtual){
+            console.log(Ternary.mapToFind); 
+            throw new Error("virtual node :( " + idA + " " + idB + " " + idC);
+        }
+
         return x;
     }
 
@@ -130,13 +135,10 @@ class Ternary {
         if (bflip.swap)
         {
             var idD     = bflip.other;
+            //console.log("nodeONe " + idA + " " + idB + " " + idP);
             var nodeOne = Ternary.findANode(idA, idB, idP);
-            if (nodeOne == undefined){
-                console.log(Ternary.mapToFind);
-                console.log(Ternary.mapToFind.get([1, 3, 4]));
-                console.log("I was just trying to find node " + idA + ' ' + idB + " " + idP + " please");
-                throw new Error("another fuckup");
-            }         
+            //console.log("nodeTwo " + idA + " " + idB + " " + idD);
+
             var nodeTwo = Ternary.findANode(idA, idB, idD);
 
             var leftNewTriangle  = new Ternary(dcel_ds.vxVector[idA], dcel_ds.vxVector[idP], dcel_ds.vxVector[idD], idA, idP, idD, this.root);
@@ -154,17 +156,17 @@ class Ternary {
             dcel_ds.addEdge(idP, idD);
 
             // Now test for edges DA and DB
-            console.log("recursion in swap");
             this.swap(idB, idD, idP, dcel_ds);
             this.swap(idA, idD, idP, dcel_ds);
         }
 
-        console.log("We returned false so we outta here (swap)");
     }
 
 
     addPoint(p, id, dcel_ds){
-        console.log("Add point");
+        //console.log("Adding point " + id);
+        //console.log("we are at triangle with vertices " + this.node.idA + " " + this.node.idB + " " + this.node.idC);
+        //console.log("virtual? " + this.virtual);
 
         if (this.left == null && !this.virtual){
 
@@ -176,20 +178,18 @@ class Ternary {
                 this.right = new Ternary(this.node.a, this.node.c, p, this.node.idA, this.node.idC, id, this.root);
                 this.bottom = new Ternary(this.node.b, this.node.c, p, this.node.idB, this.node.idC, id, this.root);
 
+                //console.log("added edges " + id + " " + this.node.idA);
                 dcel_ds.addEdge(id, this.node.idA);
+                //console.log("added edges " + id + " " + this.node.idB);
+
                 dcel_ds.addEdge(id, this.node.idB);
+
+                //console.log("added edges " + id + " " + this.node.idC);
                 dcel_ds.addEdge(id, this.node.idC);
-
-                console.log('adding point inside triangle ' + this.node.idA + " " + this.node.idB + " " + this.node.idC);
                 
-                console.log("Cheecking the main swap 1");
                 this.swap(this.node.idA, this.node.idB, id, dcel_ds);
-                console.log("Cheecking the main swap 2");
                 this.swap(this.node.idB, this.node.idC, id, dcel_ds);
-                console.log("Cheecking the main swap 3");
                 this.swap(this.node.idC, this.node.idA, id, dcel_ds);
-
-                console.log("Made the necessary swaps. Not exiting");
 
                 return;
                 //return [this.node.idA, this.node.idB, this.node.idC];
@@ -264,12 +264,12 @@ class Ternary {
         this.visited = true;
 
         if (!this.virtual && this.left == null){
-            console.log("NOT Virtual and Leaf");
+            //console.log("NOT Virtual and Leaf");
 
             return [[this.node.idA, this.node.idB, this.node.idC]];
         }
         else if (!this.virtual){
-            console.log("Not virtual not leaf");
+            //console.log("Not virtual not leaf");
             var retList = [];
 
             retList = retList.concat(this.left.dfs());
@@ -279,7 +279,7 @@ class Ternary {
             return retList;
         }
         else {
-            console.log("virtual");
+            //console.log("virtual");
             // Virtual node
             var retList = [];
 

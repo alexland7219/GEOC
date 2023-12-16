@@ -1,3 +1,16 @@
+const getCircularReplacer = () => {
+    const seen = new WeakSet();
+    return (key, value) => {
+      if (typeof value === "object" && value !== null) {
+        if (seen.has(value)) {
+          return;
+        }
+        seen.add(value);
+      }
+      return value;
+    };
+  };
+
 // This class implements a DCEL
 class DCEL {
     constructor() {
@@ -20,7 +33,9 @@ class DCEL {
         if (ccw){
             var x = this.vxVector[v].edges.reduce((accEdge, newEdge) => (
                 newEdge.angle == angle ? accEdge : (  // If the smallest angle is 0 (twin), really it's the last one
-                (angle - newEdge.angle + 360) % 360 < (angle - accEdge.angle + 360) % 360 ? newEdge : accEdge)
+                accEdge.angle == angle ? newEdge : (
+                    (angle - newEdge.angle + 720) % 360 < (angle - accEdge.angle + 720) % 360 ? newEdge : accEdge)
+                )
             ));
             //console.log(x);
             return x;
@@ -28,8 +43,9 @@ class DCEL {
         else {
             var x = this.vxVector[v].edges.reduce((accEdge, newEdge) => (
                 newEdge.angle == angle ? accEdge : (
-                (angle - newEdge.angle + 360) % 360 > (angle - accEdge.angle + 360) % 360 ? newEdge : accEdge)
-            ));
+                accEdge.angle == angle ? newEdge : (
+                (angle - newEdge.angle + 720) % 360 > (angle - accEdge.angle + 720) % 360 ? newEdge : accEdge)
+            )));
             //console.log(x.twin);
             return x.twin;
         }
@@ -118,38 +134,36 @@ class DCEL {
 
     swapTest(idA, idB, idP)
     {
-        console.log("DCEL: Swap test for vertices " + idA + ' ' + idB + ' ' + idP);
+
+        //console.log("DCEL: Swap test for vertices " + idA + ' ' + idB + ' ' + idP);
         // Test whether point P lies inside circumference ABD, where D is the opposite vertex.
         // If there is no D (external edge AB), then returns false;
 
         var edgeAB = this.egVector.find((edge)=> edge.from == idA && edge.next.from == idB);
 
         if (edgeAB == undefined) {
+           //return {swap:false};
             console.log("error undefined edge from " + idA + " to " + idB);
             console.log(this);
+            throw new Error("JJJJJJKKK");
         }
 
         var d = edgeAB.next.next.from;
 
-        console.log(edgeAB);
+        //console.log(edgeAB);
 
         if (d == idP)
         {
             d = edgeAB.twin.next.next.from;
             if (edgeAB.twin.next.next.next.from != idB) {
-                console.log("Returning false");
                 return {swap:false};
             }
         }
         else if (edgeAB.next.next.next.from != idA){
-            console.log("Returning false");
             return {swap:false};
         }
 
         var k = this.inCircle(idB, idP, idA, d);
-
-        console.log(k);
-        console.log("Outta swapTest");
 
         return {swap:k, other:d};
     }
@@ -280,13 +294,24 @@ class DCEL {
     }
 
     removeEdge(vA, vB){
+
+
         var he1 = this.vxVector[vA].edges.find((edge) => edge.twin.from == vB);
         var he2 = he1.twin;
+
 
         var prevHe1 = he1.prev;
         var prevHe2 = he2.prev;
         var nextHe1 = he1.next;
         var nextHe2 = he2.next;
+
+
+
+        ///if (vA == 21 && vB == 3){
+        //    console.log(this);
+        //    console.log(he1);
+        //    throw new Error("AFTER REMOVAL OF 21 3");
+        //}
 
         // Removing
         this.vxVector[vA].removeHalfEdge(he1);
@@ -295,10 +320,24 @@ class DCEL {
         this.egVector = this.egVector.filter(item => (item.angle != he1.angle || item.from != he1.from));
         this.egVector = this.egVector.filter(item => (item.angle != he2.angle || item.from != he2.from));
 
+        //if (vA == 562 && vB == 21){
+        //    console.log("Halted! Removing edge 562 et 21");
+        //    console.log("Previous from 21 -> 3");
+        //    console.log(this.vxVector[vB]);
+        //    console.log(nextHe1.angle);
+        //    console.log(this.getNextEdge(vB, nextHe1.angle, false));
+        //    throw new Error("Yo");
+       // }
+
+
         prevHe1.next = this.getNextEdge(vA, prevHe1.twin.angle, true);
         prevHe2.next = this.getNextEdge(vB, prevHe2.twin.angle, true);
         nextHe1.prev = this.getNextEdge(vB, nextHe1.angle, false);
         nextHe2.prev = this.getNextEdge(vA, nextHe2.angle, false);
 
+        //if (vA == 21 && vB == 3){
+        //    console.log(this);
+       //     throw new Error("AFTER REMOVAL OF 21 3");
+        //}
     }
 }
