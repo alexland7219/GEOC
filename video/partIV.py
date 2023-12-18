@@ -52,7 +52,6 @@ class ConvexHull(Scene):
         nodesB = [(n[0]+2.3, n[1]-0.4) for n in nodesB]
 
         nodes = compNodes(nodesB, BLACK)
-
         edges = [(0,1), (5,0), (9,3), (3,5), (6,5), (7,6), (1,8), (3,4), (4,7), (8,7), (2,7), (2,8), (7,5), (6,0), (6,1), (4,2), (9,5), (3,7), (8,6)]
         edges = compEdges(nodes, edges)
 
@@ -144,7 +143,7 @@ class ConvexHull(Scene):
             bgNodes[-1].z_index=-2
 
             if i != 6:
-                names.append(Tex("$\\alpha_{}$".format(i+1), font_size=120, color=BLACK).scale(0.3).move_to(nodes[y].get_center() + determinePos(y)))
+                names.append(Tex("$\\alpha_{}$".format(i+3), font_size=120, color=BLACK).scale(0.3).move_to(nodes[y].get_center() + determinePos(y)))
                 self.play(*[Create(arrows[-1]), Create(bgNodes[-1]), Create(names[-1])])
 
             else:
@@ -156,5 +155,91 @@ class ConvexHull(Scene):
         self.wait(2)
 
         setupAlg2 = [Tex(r"Internal nodes can shutdown.", font_size=120, color=BLACK).scale(0.3).move_to(4*LEFT + 2*DOWN)]
+
         self.play(*[Create(x) for x in setupAlg2])
         self.wait(2)
+
+        self.play(*[Uncreate(x) for x in nodes[6:8]])
+        self.play(*[Uncreate(e) for e in [edges[v] for v in [3, 4, 5, 8, 9, 10, 12, 13, 14, 17, 18]]])
+
+        self.play(*[Uncreate(x) for x in setupAlg2])
+        self.play(*[Uncreate(x) for x in setupAlg])
+        self.play(*[Uncreate(x) for x in arrows])
+
+        self.wait(2)
+
+        self.play(Uncreate(stepName))
+
+        self.play(Uncreate(square))
+
+
+        stepName = Text("RECURSIVE MERGE", color=WHITE, font="DejaVu Sans Mono").scale(0.4).move_to(4.5*LEFT+2*UP)
+
+        square = Rectangle(color=0x483c32, width=80, height=10)
+        square.set_fill(0x483c32, opacity=1)
+
+        square.surround(stepName, buff=0.4)
+
+        self.play(Create(square))
+        self.play(Create(stepName))
+        self.wait(2)
+
+
+        setupAlg = [Tex(r"Recursively compute convex hulls.", font_size=120, color=BLACK).scale(0.3).move_to(3.7*LEFT + UP),
+        Tex(r"$C_1 = \mathcal{CH}(S_1 = \{\alpha_1, \dots, \alpha_{\lfloor \frac{n}{2} \rfloor}\}$.", font_size=120, color=BLACK).scale(0.3).move_to(3.8*LEFT),
+                Tex(r"$C_2 = \mathcal{CH}(S_2 = \{\alpha_{\lfloor \frac{n}{2} \rfloor}, \dots, \alpha_n\}$.", font_size=120, color=BLACK).scale(0.3).move_to(3.8*LEFT +0.5*DOWN)]
+        self.play(*[Create(x) for x in setupAlg])
+        self.wait(2)
+
+        C1pos = [nodes[i].get_center() for i in [2, 4, 9]]
+        C1pol = Polygon(*C1pos, color=0x26619c, fill_opacity=0.5, stroke_width=0)
+
+        C2pos = [nodes[i].get_center() for i in [9, 0, 1, 8]]
+        C2pol = Polygon(*C2pos, color=0xa50b5e, fill_opacity=0.5, stroke_width=0)
+
+        self.play(Create(C1pol))
+        self.play(Create(C2pol))
+
+        self.wait(2)
+
+        setupAlg2 = [Tex(r"If $C_1$ and $C_2$ intersect at a single point, it's $\alpha_{\lfloor \frac{n}{2} \rfloor}$.", font_size=100, color=BLACK).scale(0.3).move_to(3.2*LEFT + 1.5*DOWN),
+        Tex(r"If they don't intersect, then $C_1 \subset C_2$ or $C_2 \subset C_1$.", font_size=100, color=BLACK).scale(0.3).move_to(3.3*LEFT + 2*DOWN)]
+        self.play(*[Create(x) for x in setupAlg2])
+        self.wait(2)
+
+        ## RAY ANIMATIONS
+
+        for (i, o) in [(9,0), (0,1), (1,8)]:
+            ray = Line(start=nodes[i].get_center(), end=nodes[o].get_center(), color=0x480607)
+            ray.set_length(100)
+
+            nodo = compNodes([nodesB[i]], 0x9400d3, radi=0.17)[0]
+            nodo.z_index = -1
+            self.play(Create(nodo))
+            # Play the scene
+            self.play(Write(ray))
+            self.wait(0.5)
+
+            self.play(Uncreate(ray))
+            self.play(Uncreate(nodo))
+
+        nodo = compNodes([nodesB[1]], 0xff007f, radi=0.17)[0]
+        nodo.z_index = -1
+        self.play(Create(nodo))
+
+        self.wait(2)
+
+        c_pos = [nodes[i].get_center() for i in [2, 4, 9, 0, 1]]
+        c_pol = Polygon(*c_pos, color=0xfba0e3, fill_opacity=0.5, stroke_width=0)
+
+        self.play(Create(c_pol))
+
+        self.wait(2)
+
+        self.play(*[Uncreate(x) for x in setupAlg2])
+
+        setupAlg2 = [Tex(r"$C_1$ and $C_2$ might intersect twice.", font_size=100, color=BLACK).scale(0.3).move_to(3.2*LEFT + 1.5*DOWN),
+        Tex(r"Detect interesections by sending line info.", font_size=100, color=BLACK).scale(0.3).move_to(3.3*LEFT + 2*DOWN)]
+        self.play(*[Create(x) for x in setupAlg2])
+        self.wait(2)
+
